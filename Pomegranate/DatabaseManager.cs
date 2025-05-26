@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Data.Sqlite;
 using System.Data;
 using System.Windows.Forms;
+using System.Data.SQLite.Core;
 
 namespace Pomegranate
 {
