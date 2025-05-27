@@ -44,3 +44,4 @@ C:\Hackathon\client\obj\Debug\net9.0-windows\refint\client.dll
 C:\Hackathon\client\obj\Debug\net9.0-windows\client.pdb
 C:\Hackathon\client\obj\Debug\net9.0-windows\client.genruntimeconfig.cache
 C:\Hackathon\client\obj\Debug\net9.0-windows\ref\client.dll
+C:\Hackathon\client\obj\Debug\net9.0-windows\client.Properties.Resources.resources

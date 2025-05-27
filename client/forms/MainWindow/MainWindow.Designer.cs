@@ -24,15 +24,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             TestLabel = new Label();
             dataGridView1 = new DataGridView();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // TestLabel
             // 
             TestLabel.AutoSize = true;
-            TestLabel.Location = new Point(375, 22);
+            TestLabel.Location = new Point(273, 9);
             TestLabel.Name = "TestLabel";
             TestLabel.Size = new Size(77, 20);
             TestLabel.TabIndex = 0;
@@ -41,18 +43,29 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 62);
+            dataGridView1.Location = new Point(452, 190);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(804, 376);
+            dataGridView1.Size = new Size(138, 152);
             dataGridView1.TabIndex = 2;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(587, 55);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 3;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Pink;
-            ClientSize = new Size(1179, 461);
+            BackColor = Color.PaleTurquoise;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(732, 413);
+            Controls.Add(button1);
             Controls.Add(dataGridView1);
             Controls.Add(TestLabel);
             Name = "MainWindow";
@@ -66,5 +79,6 @@
 
         private Label TestLabel;
         private DataGridView dataGridView1;
+        private Button button1;
     }
 }
