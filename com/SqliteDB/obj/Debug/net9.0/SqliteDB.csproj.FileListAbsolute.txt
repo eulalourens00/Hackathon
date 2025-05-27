@@ -1,0 +1,13 @@
+C:\Hackathon\com\SqliteDB\bin\Debug\net9.0\SqliteDB.deps.json
+C:\Hackathon\com\SqliteDB\bin\Debug\net9.0\SqliteDB.dll
+C:\Hackathon\com\SqliteDB\bin\Debug\net9.0\SqliteDB.pdb
+C:\Hackathon\com\SqliteDB\obj\Debug\net9.0\SqliteDB.csproj.AssemblyReference.cache
+C:\Hackathon\com\SqliteDB\obj\Debug\net9.0\SqliteDB.GeneratedMSBuildEditorConfig.editorconfig
+C:\Hackathon\com\SqliteDB\obj\Debug\net9.0\SqliteDB.AssemblyInfoInputs.cache
+C:\Hackathon\com\SqliteDB\obj\Debug\net9.0\SqliteDB.AssemblyInfo.cs
+C:\Hackathon\com\SqliteDB\obj\Debug\net9.0\SqliteDB.csproj.CoreCompileInputs.cache
+C:\Hackathon\com\SqliteDB\obj\Debug\net9.0\SqliteDB.sourcelink.json
+C:\Hackathon\com\SqliteDB\obj\Debug\net9.0\SqliteDB.dll
+C:\Hackathon\com\SqliteDB\obj\Debug\net9.0\refint\SqliteDB.dll
+C:\Hackathon\com\SqliteDB\obj\Debug\net9.0\SqliteDB.pdb
+C:\Hackathon\com\SqliteDB\obj\Debug\net9.0\ref\SqliteDB.dll
