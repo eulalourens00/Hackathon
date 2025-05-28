@@ -31,7 +31,6 @@ C:\Hackathon\client\bin\Debug\net9.0-windows\runtimes\win-x86\native\e_sqlite3.d
 C:\Hackathon\client\bin\Debug\net9.0-windows\SqliteDB.dll
 C:\Hackathon\client\bin\Debug\net9.0-windows\SqliteDB.pdb
 C:\Hackathon\client\obj\Debug\net9.0-windows\client.csproj.AssemblyReference.cache
-C:\Hackathon\client\obj\Debug\net9.0-windows\client.MainWindow.resources
 C:\Hackathon\client\obj\Debug\net9.0-windows\client.csproj.GenerateResource.cache
 C:\Hackathon\client\obj\Debug\net9.0-windows\client.GeneratedMSBuildEditorConfig.editorconfig
 C:\Hackathon\client\obj\Debug\net9.0-windows\client.AssemblyInfoInputs.cache
@@ -44,3 +43,9 @@ C:\Hackathon\client\obj\Debug\net9.0-windows\refint\client.dll
 C:\Hackathon\client\obj\Debug\net9.0-windows\client.pdb
 C:\Hackathon\client\obj\Debug\net9.0-windows\client.genruntimeconfig.cache
 C:\Hackathon\client\obj\Debug\net9.0-windows\ref\client.dll
+C:\Hackathon\client\obj\Debug\net9.0-windows\client.Properties.Resources.resources
+C:\Hackathon\client\obj\Debug\net9.0-windows\client.forms.MainWindow.AccountForm.resources
+C:\Hackathon\client\obj\Debug\net9.0-windows\client.forms.MainWindow.DocumentationForm.resources
+C:\Hackathon\client\obj\Debug\net9.0-windows\client.forms.MainWindow.EmployeesForm.resources
+C:\Hackathon\client\obj\Debug\net9.0-windows\client.ObjectsManagementForm.resources
+C:\Hackathon\client\obj\Debug\net9.0-windows\client.forms.MainWindow.TasksForm.resources

@@ -1,13 +1,17 @@
-﻿using SqliteDB;
+﻿using client.forms.MainWindow;
+using SqliteDB;
 
-namespace client {
-    public partial class MainWindow : Form
+namespace client{
+    public partial class ObjectsManagementForm : Form
     {
         private DBController controller = new DBController("dataBase.db");
-        public MainWindow()
+        public ObjectsManagementForm()
         {
             InitializeComponent();
-
+            LoadData();
+        }
+        private void LoadData()
+        {
             controller.objectsModel.CreateRecord(new Objects
             {
                 object_type = 1,
@@ -17,12 +21,8 @@ namespace client {
                 number = 1
             });
             List<Objects> objects = controller.objectsModel.Query();
+
             dataGridView1.DataSource = objects;
-        }
-
-        private void TestLabel_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
