@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Hackathon\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{53489CD1-8C82-47AF-A47D-FF70513225E6}|client\\client.csproj|c:\\hackathon\\client\\forms\\mainwindow\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53489CD1-8C82-47AF-A47D-FF70513225E6}|client\\client.csproj|solutionrelative:client\\forms\\mainwindow\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{53489CD1-8C82-47AF-A47D-FF70513225E6}|client\\client.csproj|c:\\hackathon\\client\\forms\\mainwindow\\collapsiblesidebar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{53489CD1-8C82-47AF-A47D-FF70513225E6}|client\\client.csproj|solutionrelative:client\\forms\\mainwindow\\collapsiblesidebar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{53489CD1-8C82-47AF-A47D-FF70513225E6}|client\\client.csproj|C:\\Hackathon\\client\\forms\\mainwindow\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{53489CD1-8C82-47AF-A47D-FF70513225E6}|client\\client.csproj|solutionrelative:client\\forms\\mainwindow\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53489CD1-8C82-47AF-A47D-FF70513225E6}|client\\client.csproj|c:\\hackathon\\client\\forms\\mainwindow\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53489CD1-8C82-47AF-A47D-FF70513225E6}|client\\client.csproj|solutionrelative:client\\forms\\mainwindow\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,38 +30,38 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "CollapsibleSidebar.cs",
               "DocumentMoniker": "C:\\Hackathon\\client\\forms\\MainWindow\\CollapsibleSidebar.cs",
               "RelativeDocumentMoniker": "client\\forms\\MainWindow\\CollapsibleSidebar.cs",
               "ToolTip": "C:\\Hackathon\\client\\forms\\MainWindow\\CollapsibleSidebar.cs",
               "RelativeToolTip": "client\\forms\\MainWindow\\CollapsibleSidebar.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAYwGIAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAACkAAAAAAAAAAAAswEcAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-27T10:58:42.714Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "MainWindow.cs",
               "DocumentMoniker": "C:\\Hackathon\\client\\forms\\MainWindow\\MainWindow.cs",
               "RelativeDocumentMoniker": "client\\forms\\MainWindow\\MainWindow.cs",
-              "ToolTip": "C:\\Hackathon\\client\\forms\\MainWindow\\MainWindow.cs*",
-              "RelativeToolTip": "client\\forms\\MainWindow\\MainWindow.cs*",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAQwBoAAAAMAAAAAAAAAA==",
+              "ToolTip": "C:\\Hackathon\\client\\forms\\MainWindow\\MainWindow.cs",
+              "RelativeToolTip": "client\\forms\\MainWindow\\MainWindow.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-26T11:25:15.667Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "MainWindow.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "C:\\Hackathon\\client\\forms\\MainWindow\\MainWindow.cs",
               "RelativeDocumentMoniker": "client\\forms\\MainWindow\\MainWindow.cs",
-              "ToolTip": "C:\\Hackathon\\client\\forms\\MainWindow\\MainWindow.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]*",
-              "RelativeToolTip": "client\\forms\\MainWindow\\MainWindow.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]*",
+              "ToolTip": "C:\\Hackathon\\client\\forms\\MainWindow\\MainWindow.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "client\\forms\\MainWindow\\MainWindow.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-26T11:25:07.622Z",
               "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"

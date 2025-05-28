@@ -40,6 +40,7 @@ namespace client.forms.MainWindow
 
         private void SetupMenuItems()
         {
+            //шторка
             var menuItems = new[]
             {
                 new MenuItemData { Icon = "📊", Text = "Управление объектами", Checked = false },
@@ -48,6 +49,26 @@ namespace client.forms.MainWindow
                 new MenuItemData { Icon = "👥", Text = "Сотрудники", Checked = false },
                 new MenuItemData { Icon = "👤", Text = "Учетная запись", Checked = false },
                 new MenuItemData { Icon = "🚪", Text = "Выход", Checked = false }
+            };
+            var toggleButton = new ToolStripButton
+            {
+                Text = "≡",
+                DisplayStyle = ToolStripItemDisplayStyle.Text,
+                Alignment = ToolStripItemAlignment.Left,
+                TextAlign = ContentAlignment.MiddleCenter,
+                BackColor = Color.FromArgb(50, 50, 50),
+                ForeColor = Color.White
+            };
+            toggleButton.Click += (s, e) => this.ToggleSidebar();
+            this.Items.Insert(0, toggleButton);
+
+            // клики
+            this.MenuItemClicked += (menuItem) =>
+            {
+                if (menuItem == "Выход")
+                { Application.Exit(); }
+                else
+                { MessageBox.Show($"В работе"); }
             };
 
             foreach (var item in menuItems)
@@ -74,9 +95,7 @@ namespace client.forms.MainWindow
         private void MenuItem_Click(object sender, EventArgs e)
         {
             if (sender is ToolStripButton btn && btn.Tag is MenuItemData item)
-            {
-                MenuItemClicked?.Invoke(item.Text);
-            }
+            { MenuItemClicked?.Invoke(item.Text); }
         }
 
         public void ToggleSidebar()
