@@ -24,7 +24,9 @@ namespace client {
                 number = 1
             });
             List<Objects> objects = controller.objectsModel.Query();
+            
             dataGridView1.DataSource = objects;
+
         }
         private void TestLabel_Click(object sender, EventArgs e)
         {
@@ -36,6 +38,9 @@ namespace client {
             this.BackColor = Color.FromArgb(240, 240, 240);
             this.Text = "ОБЪЕКТЫ";
 
+            this.BackgroundImage = Image.FromFile(@"C:\Hackathon\images\bck_1.jpg");
+            this.BackgroundImageLayout = ImageLayout.Stretch;
+
             CollapsibleSidebar sidebar = new CollapsibleSidebar
             {
                 Parent = this,
@@ -46,9 +51,13 @@ namespace client {
             sidebar.MenuItemClicked += (menuItem) =>
             {
                 if (menuItem == "Выход")
-                { Application.Exit();}
+                {
+                    Application.Exit();
+                }
                 else
-                { MessageBox.Show($"В работе");} // ДОДЕЛАТЬ
+                {
+                    MessageBox.Show($"В работе"); // ДОДЕЛАТЬ
+                }
             };
 
             var toggleButton = new ToolStripButton
@@ -56,7 +65,9 @@ namespace client {
                 Text = "≡",
                 DisplayStyle = ToolStripItemDisplayStyle.Text,
                 Alignment = ToolStripItemAlignment.Left,
-                TextAlign = ContentAlignment.MiddleCenter
+                TextAlign = ContentAlignment.MiddleCenter,
+                BackColor = Color.FromArgb(50, 50, 50),
+                ForeColor = Color.White
             };
             toggleButton.Click += (s, e) => sidebar.ToggleSidebar();
             sidebar.Items.Insert(0, toggleButton);
@@ -64,14 +75,15 @@ namespace client {
             var contentPanel = new Panel
             {
                 Dock = DockStyle.Fill,
-                BackColor = this.BackColor,
+                BackColor = Color.White,
                 Parent = this
             };
             contentPanel.BringToFront();
+
             dataGridView1 = new DataGridView
             {
                 Dock = DockStyle.Fill,
-                BackgroundColor = this.BackColor,
+                BackgroundColor = Color.White,
                 Parent = contentPanel
             };
         }

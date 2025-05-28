@@ -34,6 +34,8 @@ namespace client.forms.MainWindow
             this.LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.ShowItemToolTips = false;
             this.AutoSize = false;
+            this.BackColor = Color.FromArgb(50, 50, 50);
+            this.ForeColor = Color.White;
         }
 
         private void SetupMenuItems()
@@ -58,74 +60,22 @@ namespace client.forms.MainWindow
                     TextAlign = ContentAlignment.MiddleLeft,
                     AutoSize = false,
                     Width = _expanded ? ExpandedWidth - 10 : CollapsedWidth - 10,
-                    Checked = item.Checked
+                    Checked = item.Checked,
+                    BackColor = Color.FromArgb(50, 50, 50),
+                    ForeColor = Color.White
                 };
 
-                menuItem.MouseEnter += (s, e) => ShowButtonText(menuItem);
-                menuItem.MouseLeave += (s, e) => HideButtonText(menuItem);
                 menuItem.Click += MenuItem_Click;
 
                 this.Items.Add(menuItem);
             }
         }
 
-        private void ShowButtonText(ToolStripButton btn)
-        {
-            if (btn.Tag is MenuItemData item)
-            {
-                btn.Text = $"{item.Icon} {item.Text}";
-                btn.Width = ExpandedWidth - 10;
-            }
-        }
-
-        private void HideButtonText(ToolStripButton btn)
-        {
-            if (btn.Tag is MenuItemData item && !_expanded)
-            {
-                btn.Text = item.Icon;
-                btn.Width = CollapsedWidth - 10;
-            }
-        }
-
         private void MenuItem_Click(object sender, EventArgs e)
         {
             if (sender is ToolStripButton btn && btn.Tag is MenuItemData item)
-            { MenuItemClicked?.Invoke(item.Text);}
-        }
-
-        protected override void OnMouseEnter(EventArgs e)
-        {
-            base.OnMouseEnter(e);
-            if (!_expanded)
             {
-                this.Width = ExpandedWidth;
-                _expanded = true;
-                UpdateButtonsState();
-            }
-        }
-
-        protected override void OnMouseLeave(EventArgs e)
-        {
-            base.OnMouseLeave(e);
-            if (_expanded && !this.ClientRectangle.Contains(this.PointToClient(Control.MousePosition)))
-            {
-                this.Width = CollapsedWidth;
-                _expanded = false;
-                UpdateButtonsState();
-            }
-        }
-
-        private void UpdateButtonsState()
-        {
-            foreach (ToolStripItem item in this.Items)
-            {
-                if (item is ToolStripButton btn)
-                {
-                    if (_expanded)
-                    { ShowButtonText(btn);}
-                    else
-                    { HideButtonText(btn);}
-                }
+                MenuItemClicked?.Invoke(item.Text);
             }
         }
 
@@ -134,6 +84,18 @@ namespace client.forms.MainWindow
             _expanded = !_expanded;
             this.Width = _expanded ? ExpandedWidth : CollapsedWidth;
             UpdateButtonsState();
+        }
+
+        private void UpdateButtonsState()
+        {
+            foreach (ToolStripItem item in this.Items)
+            {
+                if (item is ToolStripButton btn && btn.Tag is MenuItemData menuItem)
+                {
+                    btn.Text = _expanded ? $"{menuItem.Icon} {menuItem.Text}" : menuItem.Icon;
+                    btn.Width = _expanded ? ExpandedWidth - 10 : CollapsedWidth - 10;
+                }
+            }
         }
     }
 }
