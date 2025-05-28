@@ -7,12 +7,28 @@
       "RelativeMoniker": "D:0:0:{53489CD1-8C82-47AF-A47D-FF70513225E6}|client\\client.csproj|solutionrelative:client\\forms\\mainwindow\\collapsiblesidebar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{53489CD1-8C82-47AF-A47D-FF70513225E6}|client\\client.csproj|C:\\Hackathon\\client\\forms\\mainwindow\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{53489CD1-8C82-47AF-A47D-FF70513225E6}|client\\client.csproj|solutionrelative:client\\forms\\mainwindow\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{53489CD1-8C82-47AF-A47D-FF70513225E6}|client\\client.csproj|c:\\hackathon\\client\\forms\\mainwindow\\tasksform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{53489CD1-8C82-47AF-A47D-FF70513225E6}|client\\client.csproj|solutionrelative:client\\forms\\mainwindow\\tasksform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{53489CD1-8C82-47AF-A47D-FF70513225E6}|client\\client.csproj|c:\\hackathon\\client\\forms\\mainwindow\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53489CD1-8C82-47AF-A47D-FF70513225E6}|client\\client.csproj|solutionrelative:client\\forms\\mainwindow\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{53489CD1-8C82-47AF-A47D-FF70513225E6}|client\\client.csproj|c:\\hackathon\\client\\forms\\mainwindow\\accountform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{53489CD1-8C82-47AF-A47D-FF70513225E6}|client\\client.csproj|solutionrelative:client\\forms\\mainwindow\\accountform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53489CD1-8C82-47AF-A47D-FF70513225E6}|client\\client.csproj|c:\\hackathon\\client\\forms\\mainwindow\\objectsmanagementform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53489CD1-8C82-47AF-A47D-FF70513225E6}|client\\client.csproj|solutionrelative:client\\forms\\mainwindow\\objectsmanagementform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53489CD1-8C82-47AF-A47D-FF70513225E6}|client\\client.csproj|c:\\hackathon\\client\\forms\\mainwindow\\documentationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{53489CD1-8C82-47AF-A47D-FF70513225E6}|client\\client.csproj|solutionrelative:client\\forms\\mainwindow\\documentationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53489CD1-8C82-47AF-A47D-FF70513225E6}|client\\client.csproj|c:\\hackathon\\client\\forms\\mainwindow\\employeesform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{53489CD1-8C82-47AF-A47D-FF70513225E6}|client\\client.csproj|solutionrelative:client\\forms\\mainwindow\\employeesform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53489CD1-8C82-47AF-A47D-FF70513225E6}|client\\client.csproj|c:\\hackathon\\client\\forms\\mainwindow\\objectsmanagementform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{53489CD1-8C82-47AF-A47D-FF70513225E6}|client\\client.csproj|solutionrelative:client\\forms\\mainwindow\\objectsmanagementform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,11 +38,59 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TasksForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Hackathon\\client\\forms\\MainWindow\\TasksForm.cs",
+              "RelativeDocumentMoniker": "client\\forms\\MainWindow\\TasksForm.cs",
+              "ToolTip": "C:\\Hackathon\\client\\forms\\MainWindow\\TasksForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "client\\forms\\MainWindow\\TasksForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T08:47:53.45Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AccountForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Hackathon\\client\\forms\\MainWindow\\AccountForm.cs",
+              "RelativeDocumentMoniker": "client\\forms\\MainWindow\\AccountForm.cs",
+              "ToolTip": "C:\\Hackathon\\client\\forms\\MainWindow\\AccountForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "client\\forms\\MainWindow\\AccountForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T07:26:36.062Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EmployeesForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Hackathon\\client\\forms\\MainWindow\\EmployeesForm.cs",
+              "RelativeDocumentMoniker": "client\\forms\\MainWindow\\EmployeesForm.cs",
+              "ToolTip": "C:\\Hackathon\\client\\forms\\MainWindow\\EmployeesForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "client\\forms\\MainWindow\\EmployeesForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T07:26:21.845Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DocumentationForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Hackathon\\client\\forms\\MainWindow\\DocumentationForm.cs",
+              "RelativeDocumentMoniker": "client\\forms\\MainWindow\\DocumentationForm.cs",
+              "ToolTip": "C:\\Hackathon\\client\\forms\\MainWindow\\DocumentationForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "client\\forms\\MainWindow\\DocumentationForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T07:26:05.697Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
             },
             {
               "$type": "Document",
@@ -36,32 +100,32 @@
               "RelativeDocumentMoniker": "client\\forms\\MainWindow\\CollapsibleSidebar.cs",
               "ToolTip": "C:\\Hackathon\\client\\forms\\MainWindow\\CollapsibleSidebar.cs",
               "RelativeToolTip": "client\\forms\\MainWindow\\CollapsibleSidebar.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAIwD0AAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAADcAAAAAAAAAAAAwwIMAAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-27T10:58:42.714Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MainWindow.cs",
-              "DocumentMoniker": "C:\\Hackathon\\client\\forms\\MainWindow\\MainWindow.cs",
-              "RelativeDocumentMoniker": "client\\forms\\MainWindow\\MainWindow.cs",
-              "ToolTip": "C:\\Hackathon\\client\\forms\\MainWindow\\MainWindow.cs",
-              "RelativeToolTip": "client\\forms\\MainWindow\\MainWindow.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAXAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "ObjectsManagementForm.cs",
+              "DocumentMoniker": "C:\\Hackathon\\client\\forms\\MainWindow\\ObjectsManagementForm.cs",
+              "RelativeDocumentMoniker": "client\\forms\\MainWindow\\ObjectsManagementForm.cs",
+              "ToolTip": "C:\\Hackathon\\client\\forms\\MainWindow\\ObjectsManagementForm.cs",
+              "RelativeToolTip": "client\\forms\\MainWindow\\ObjectsManagementForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-26T11:25:15.667Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainWindow.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "DocumentMoniker": "C:\\Hackathon\\client\\forms\\MainWindow\\MainWindow.cs",
-              "RelativeDocumentMoniker": "client\\forms\\MainWindow\\MainWindow.cs",
-              "ToolTip": "C:\\Hackathon\\client\\forms\\MainWindow\\MainWindow.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "RelativeToolTip": "client\\forms\\MainWindow\\MainWindow.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentIndex": 6,
+              "Title": "ObjectsManagementForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Hackathon\\client\\forms\\MainWindow\\ObjectsManagementForm.cs",
+              "RelativeDocumentMoniker": "client\\forms\\MainWindow\\ObjectsManagementForm.cs",
+              "ToolTip": "C:\\Hackathon\\client\\forms\\MainWindow\\ObjectsManagementForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "client\\forms\\MainWindow\\ObjectsManagementForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-26T11:25:07.622Z",
               "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"

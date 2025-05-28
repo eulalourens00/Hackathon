@@ -1,5 +1,5 @@
 ﻿namespace client {
-    partial class MainWindow {
+    partial class ObjectsManagementForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -24,7 +24,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ObjectsManagementForm));
             TestLabel = new Label();
             dataGridView1 = new DataGridView();
             button1 = new Button();
@@ -44,7 +44,7 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(115, 41);
+            dataGridView1.Location = new Point(125, 56);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(461, 365);
@@ -73,7 +73,7 @@
             collapsibleSidebar1.TabIndex = 4;
             collapsibleSidebar1.Text = "collapsibleSidebar1";
             // 
-            // MainWindow
+            // ObjectsManagementForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -90,7 +90,7 @@
             MaximumSize = new Size(900, 600);
             MinimizeBox = false;
             MinimumSize = new Size(900, 600);
-            Name = "MainWindow";
+            Name = "ObjectsManagementForm";
             Text = "MainWindow";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);

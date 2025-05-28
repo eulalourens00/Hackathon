@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using client.forms;
 
 namespace client.forms.MainWindow
 {
@@ -11,7 +13,8 @@ namespace client.forms.MainWindow
         private bool _expanded = false;
         private const int CollapsedWidth = 50;
         private const int ExpandedWidth = 200;
-
+        private Form currentActiveForm;
+        private Panel contentPanel = new Panel();
         public event Action<string> MenuItemClicked;
 
         private class MenuItemData
@@ -62,15 +65,6 @@ namespace client.forms.MainWindow
             toggleButton.Click += (s, e) => this.ToggleSidebar();
             this.Items.Insert(0, toggleButton);
 
-            // клики
-            this.MenuItemClicked += (menuItem) =>
-            {
-                if (menuItem == "Выход")
-                { Application.Exit(); }
-                else
-                { MessageBox.Show($"В работе"); }
-            };
-
             foreach (var item in menuItems)
             {
                 var menuItem = new ToolStripButton
@@ -95,9 +89,60 @@ namespace client.forms.MainWindow
         private void MenuItem_Click(object sender, EventArgs e)
         {
             if (sender is ToolStripButton btn && btn.Tag is MenuItemData item)
-            { MenuItemClicked?.Invoke(item.Text); }
+            { OpenChildForm(item.Text); }
         }
 
+        private void OpenChildForm(string menuItemText)
+        {
+            Form childForm = null;
+
+            switch (menuItemText)
+            {
+                case "Управление объектами":
+                    childForm = new ObjectsManagementForm();
+                    this.Parent.Hide();
+                    childForm.StartPosition = FormStartPosition.CenterScreen;
+                    childForm.Show();
+                    break;
+
+                case "Задачи":
+                    childForm = new TasksForm();
+                    this.Parent.Hide();
+                    childForm.StartPosition = FormStartPosition.CenterScreen;
+                    childForm.Show();
+                    break;
+
+                case "Документация":
+                    childForm = new DocumentationForm();
+                    this.Parent.Hide();
+                    childForm.StartPosition = FormStartPosition.CenterScreen;
+                    childForm.Show();
+                    break;
+
+                case "Сотрудники":
+                    childForm = new EmployeesForm();
+                    this.Parent.Hide();
+                    childForm.StartPosition = FormStartPosition.CenterScreen;
+                    childForm.Show();
+                    break;
+
+                case "Учетная запись":
+                    childForm = new AccountForm();
+                    this.Parent.Hide();
+                    childForm.StartPosition = FormStartPosition.CenterScreen;
+                    childForm.Show();
+                    break;
+
+                case "Выход":
+                    Application.Exit();
+                    return;
+                default:
+                    MessageBox.Show($"Недоступно.");
+                    return;
+            }
+        }
+
+        // анимка для свертывания шапки
         public void ToggleSidebar()
         {
             _expanded = !_expanded;
