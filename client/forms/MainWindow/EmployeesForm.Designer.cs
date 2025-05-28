@@ -43,7 +43,7 @@
             collapsibleSidebar1.LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow;
             collapsibleSidebar1.Location = new Point(0, 0);
             collapsibleSidebar1.Name = "collapsibleSidebar1";
-            collapsibleSidebar1.Size = new Size(62, 450);
+            collapsibleSidebar1.Size = new Size(62, 553);
             collapsibleSidebar1.TabIndex = 0;
             collapsibleSidebar1.Text = "collapsibleSidebar1";
             // 
@@ -61,11 +61,16 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(882, 553);
             Controls.Add(label1);
             Controls.Add(collapsibleSidebar1);
             MainMenuStrip = collapsibleSidebar1;
+            MaximizeBox = false;
+            MaximumSize = new Size(900, 600);
+            MinimizeBox = false;
+            MinimumSize = new Size(900, 600);
             Name = "EmployeesForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "EmployeesForm";
             ResumeLayout(false);
             PerformLayout();
