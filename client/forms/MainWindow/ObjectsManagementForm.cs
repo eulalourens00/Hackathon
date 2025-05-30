@@ -24,6 +24,5 @@ namespace client{
 
             dataGridView1.DataSource = objects;
         }
-
     }
 }

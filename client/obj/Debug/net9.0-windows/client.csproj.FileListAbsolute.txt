@@ -49,3 +49,4 @@ C:\Hackathon\client\obj\Debug\net9.0-windows\client.forms.MainWindow.Documentati
 C:\Hackathon\client\obj\Debug\net9.0-windows\client.forms.MainWindow.EmployeesForm.resources
 C:\Hackathon\client\obj\Debug\net9.0-windows\client.ObjectsManagementForm.resources
 C:\Hackathon\client\obj\Debug\net9.0-windows\client.forms.MainWindow.TasksForm.resources
+C:\Hackathon\client\obj\Debug\net9.0-windows\client.forms.MainWindow.WelcomeScreen.resources

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SqliteDB")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5b2368de3e582b75f0068a89c980d05302f1315f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+544b2efa109ef243ea2ec565bc293d97f9dd8ed8")]
 [assembly: System.Reflection.AssemblyProductAttribute("SqliteDB")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SqliteDB")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
