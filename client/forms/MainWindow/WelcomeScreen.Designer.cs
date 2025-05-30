@@ -34,6 +34,7 @@
             label1 = new Label();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
+            loginbutton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -89,11 +90,22 @@
             pictureBox3.BackColor = Color.Transparent;
             pictureBox3.BackgroundImage = (Image)resources.GetObject("pictureBox3.BackgroundImage");
             pictureBox3.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox3.Location = new Point(764, 79);
+            pictureBox3.Location = new Point(751, 79);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(92, 106);
             pictureBox3.TabIndex = 4;
             pictureBox3.TabStop = false;
+            // 
+            // loginbutton
+            // 
+            loginbutton.BackColor = Color.FromArgb(115, 10, 10);
+            loginbutton.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            loginbutton.Location = new Point(361, 388);
+            loginbutton.Name = "loginbutton";
+            loginbutton.Size = new Size(156, 38);
+            loginbutton.TabIndex = 5;
+            loginbutton.Text = "Войти";
+            loginbutton.UseVisualStyleBackColor = false;
             // 
             // WelcomeScreen
             // 
@@ -102,11 +114,12 @@
             BackColor = SystemColors.Control;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(882, 553);
+            Controls.Add(collapsibleSidebar1);
+            Controls.Add(loginbutton);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox1);
             Controls.Add(pictureBox2);
             Controls.Add(label1);
-            Controls.Add(collapsibleSidebar1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MainMenuStrip = collapsibleSidebar1;
             MaximizeBox = false;
@@ -129,5 +142,6 @@
         private Label label1;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
+        private Button loginbutton;
     }
 }
