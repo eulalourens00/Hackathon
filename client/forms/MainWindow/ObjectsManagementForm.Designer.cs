@@ -44,7 +44,7 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(125, 56);
+            dataGridView1.Location = new Point(222, 86);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(461, 365);
@@ -52,7 +52,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(663, 158);
+            button1.Location = new Point(740, 350);
             button1.Name = "button1";
             button1.Size = new Size(94, 29);
             button1.TabIndex = 3;
@@ -77,7 +77,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.PaleTurquoise;
+            BackColor = Color.White;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(882, 553);
             Controls.Add(collapsibleSidebar1);

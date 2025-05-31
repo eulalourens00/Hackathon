@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace client.forms.MainWindow
 {
-    public partial class AccountForm : Form
+    public partial class WelcomeScreen : Form
     {
-        public AccountForm()
+        public WelcomeScreen()
         {
             InitializeComponent();
         }
