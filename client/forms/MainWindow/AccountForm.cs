@@ -16,5 +16,6 @@ namespace client.forms.MainWindow
         {
             InitializeComponent();
         }
+
     }
 }

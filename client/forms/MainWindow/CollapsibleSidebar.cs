@@ -37,7 +37,7 @@ namespace client.forms.MainWindow
             this.LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.ShowItemToolTips = false;
             this.AutoSize = false;
-            this.BackColor = Color.FromArgb(50, 50, 50);
+            this.BackColor = Color.FromArgb(200, 50, 50, 50);
             this.ForeColor = Color.White;
         }
 
@@ -46,6 +46,7 @@ namespace client.forms.MainWindow
             //шторка
             var menuItems = new[]
             {
+                new MenuItemData { Icon = "🏠", Text = "Главная", Checked = false },
                 new MenuItemData { Icon = "📊", Text = "Управление объектами", Checked = false },
                 new MenuItemData { Icon = "✅", Text = "Задачи", Checked = true },
                 new MenuItemData { Icon = "📄", Text = "Документация", Checked = false },
@@ -55,7 +56,7 @@ namespace client.forms.MainWindow
             };
             var toggleButton = new ToolStripButton
             {
-                Text = "≡",
+                Text = "⏩",
                 DisplayStyle = ToolStripItemDisplayStyle.Text,
                 Alignment = ToolStripItemAlignment.Left,
                 TextAlign = ContentAlignment.MiddleCenter,
@@ -98,6 +99,13 @@ namespace client.forms.MainWindow
 
             switch (menuItemText)
             {
+                case "Главная":
+                    childForm = new WelcomeScreen();
+                    this.Parent.Hide();
+                    childForm.StartPosition = FormStartPosition.CenterScreen;
+                    childForm.Show();
+                    break;
+
                 case "Управление объектами":
                     childForm = new ObjectsManagementForm();
                     this.Parent.Hide();
