@@ -37,7 +37,7 @@ namespace client.forms.MainWindow
             this.LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.ShowItemToolTips = false;
             this.AutoSize = false;
-            this.BackColor = Color.FromArgb(50, 50, 50);
+            this.BackColor = Color.FromArgb(200, 50, 50, 50);
             this.ForeColor = Color.White;
         }
 

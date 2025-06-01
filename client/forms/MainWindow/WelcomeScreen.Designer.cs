@@ -35,6 +35,14 @@
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
             loginbutton = new Button();
+            label2 = new Label();
+            label3 = new Label();
+            Login = new TextBox();
+            Password = new TextBox();
+            forgotpassword = new LinkLabel();
+            newuserlink = new LinkLabel();
+            label4 = new Label();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -98,14 +106,105 @@
             // 
             // loginbutton
             // 
-            loginbutton.BackColor = Color.FromArgb(115, 10, 10);
-            loginbutton.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            loginbutton.Location = new Point(361, 388);
+            loginbutton.BackColor = Color.FromArgb(199, 44, 65);
+            loginbutton.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            loginbutton.ForeColor = Color.White;
+            loginbutton.Location = new Point(340, 394);
             loginbutton.Name = "loginbutton";
-            loginbutton.Size = new Size(156, 38);
+            loginbutton.Size = new Size(214, 38);
             loginbutton.TabIndex = 5;
             loginbutton.Text = "Войти";
             loginbutton.UseVisualStyleBackColor = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label2.ForeColor = Color.FromArgb(64, 64, 64);
+            label2.Location = new Point(271, 211);
+            label2.Name = "label2";
+            label2.Size = new Size(363, 28);
+            label2.TabIndex = 6;
+            label2.Text = "Для начала работы войдите в систему";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(271, 211);
+            label3.Name = "label3";
+            label3.Size = new Size(0, 20);
+            label3.TabIndex = 7;
+            // 
+            // Login
+            // 
+            Login.BackColor = Color.FromArgb(224, 216, 208);
+            Login.Location = new Point(340, 256);
+            Login.Name = "Login";
+            Login.PlaceholderText = "Логин";
+            Login.Size = new Size(214, 27);
+            Login.TabIndex = 8;
+            // 
+            // Password
+            // 
+            Password.BackColor = Color.FromArgb(224, 216, 208);
+            Password.Location = new Point(340, 318);
+            Password.Name = "Password";
+            Password.PlaceholderText = "Пароль";
+            Password.Size = new Size(214, 27);
+            Password.TabIndex = 9;
+            // 
+            // forgotpassword
+            // 
+            forgotpassword.ActiveLinkColor = Color.CornflowerBlue;
+            forgotpassword.AutoSize = true;
+            forgotpassword.BackColor = Color.Transparent;
+            forgotpassword.Cursor = Cursors.Hand;
+            forgotpassword.LinkColor = Color.FromArgb(119, 119, 119);
+            forgotpassword.Location = new Point(430, 348);
+            forgotpassword.Name = "forgotpassword";
+            forgotpassword.Size = new Size(124, 20);
+            forgotpassword.TabIndex = 10;
+            forgotpassword.TabStop = true;
+            forgotpassword.Text = "Забыли пароль?";
+            forgotpassword.LinkClicked += forgotpassword_LinkClicked;
+            // 
+            // newuserlink
+            // 
+            newuserlink.ActiveLinkColor = Color.CornflowerBlue;
+            newuserlink.AutoSize = true;
+            newuserlink.BackColor = Color.Transparent;
+            newuserlink.Cursor = Cursors.Hand;
+            newuserlink.LinkColor = Color.FromArgb(119, 119, 119);
+            newuserlink.Location = new Point(373, 435);
+            newuserlink.Name = "newuserlink";
+            newuserlink.Size = new Size(143, 20);
+            newuserlink.TabIndex = 11;
+            newuserlink.TabStop = true;
+            newuserlink.Text = "Я новый сотрудник";
+            newuserlink.LinkClicked += newuserlink_LinkClicked;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label4.Location = new Point(397, 211);
+            label4.Name = "label4";
+            label4.Size = new Size(0, 38);
+            label4.TabIndex = 12;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.Transparent;
+            label5.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label5.ForeColor = Color.Maroon;
+            label5.Location = new Point(297, 161);
+            label5.Name = "label5";
+            label5.Size = new Size(309, 41);
+            label5.TabIndex = 13;
+            label5.Text = "Добро пожаловать!";
             // 
             // WelcomeScreen
             // 
@@ -114,6 +213,14 @@
             BackColor = SystemColors.Control;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(882, 553);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(newuserlink);
+            Controls.Add(forgotpassword);
+            Controls.Add(Password);
+            Controls.Add(Login);
+            Controls.Add(label3);
+            Controls.Add(label2);
             Controls.Add(collapsibleSidebar1);
             Controls.Add(loginbutton);
             Controls.Add(pictureBox3);
@@ -127,6 +234,7 @@
             MinimizeBox = false;
             MinimumSize = new Size(900, 600);
             Name = "WelcomeScreen";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MainPage";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -143,5 +251,13 @@
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
         private Button loginbutton;
+        private Label label2;
+        private Label label3;
+        private TextBox Login;
+        private TextBox Password;
+        private LinkLabel forgotpassword;
+        private LinkLabel newuserlink;
+        private Label label4;
+        private Label label5;
     }
 }
