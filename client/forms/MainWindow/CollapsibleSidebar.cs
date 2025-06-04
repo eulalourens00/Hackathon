@@ -16,20 +16,43 @@ namespace client.forms.MainWindow
         private Form currentActiveForm;
         private Panel contentPanel = new Panel();
         public event Action<string> MenuItemClicked;
+        private bool _isAdmin;
 
         private class MenuItemData
         {
             public string Icon { get; set; }
             public string Text { get; set; }
             public bool Checked { get; set; }
+            public bool AdminOnly { get; set; } = false;
         }
 
-        public CollapsibleSidebar()
+        public CollapsibleSidebar(bool isAdmin = false)
         {
             InitializeSidebar();
             SetupMenuItems();
+            _isAdmin = isAdmin;
+        }
+        // ЧТО-ТО ДОБАВИЛА УТРОМ ПОСМТРИ
+        public void SetAdminStatus(bool isAdmin)
+        {
+            _isAdmin = isAdmin;
+            this.Items.Clear();
+            SetupMenuItems();
         }
 
+        public void SetAdminAccess(bool isAdmin)
+        {
+            _isAdmin = isAdmin;
+            foreach (ToolStripItem item in Items)
+            {
+                if (item is ToolStripButton btn && btn.Tag is MenuItemData data && data.Text == "Сотрудники")
+                {
+                    btn.Visible = _isAdmin;
+                    break;
+                }
+            }
+        }
+        //
         private void InitializeSidebar()
         {
             this.Width = CollapsedWidth;
@@ -50,7 +73,7 @@ namespace client.forms.MainWindow
                 new MenuItemData { Icon = "📊", Text = "Управление объектами", Checked = false },
                 new MenuItemData { Icon = "✅", Text = "Задачи", Checked = true },
                 new MenuItemData { Icon = "📄", Text = "Документация", Checked = false },
-                new MenuItemData { Icon = "👥", Text = "Сотрудники", Checked = false },
+                new MenuItemData { Icon = "👥", Text = "Сотрудники", Checked = false, AdminOnly = true },
                 new MenuItemData { Icon = "👤", Text = "Учетная запись", Checked = false },
                 new MenuItemData { Icon = "🚪", Text = "Выход", Checked = false }
             };
@@ -68,6 +91,8 @@ namespace client.forms.MainWindow
 
             foreach (var item in menuItems)
             {
+                if (item.AdminOnly && !_isAdmin) { continue; }
+
                 var menuItem = new ToolStripButton
                 {
                     Text = _expanded ? $"{item.Icon} {item.Text}" : item.Icon,
@@ -107,35 +132,35 @@ namespace client.forms.MainWindow
                     break;
 
                 case "Управление объектами":
-                    childForm = new ObjectsManagementForm();
+                    childForm = new ObjectsManagementForm(_isAdmin);
                     this.Parent.Hide();
                     childForm.StartPosition = FormStartPosition.CenterScreen;
                     childForm.Show();
                     break;
 
                 case "Задачи":
-                    childForm = new TasksForm();
+                    childForm = new TasksForm(_isAdmin);
                     this.Parent.Hide();
                     childForm.StartPosition = FormStartPosition.CenterScreen;
                     childForm.Show();
                     break;
 
                 case "Документация":
-                    childForm = new DocumentationForm();
+                    childForm = new DocumentationForm(_isAdmin);
                     this.Parent.Hide();
                     childForm.StartPosition = FormStartPosition.CenterScreen;
                     childForm.Show();
                     break;
 
                 case "Сотрудники":
-                    childForm = new EmployeesForm();
+                    childForm = new EmployeesForm(_isAdmin);
                     this.Parent.Hide();
                     childForm.StartPosition = FormStartPosition.CenterScreen;
                     childForm.Show();
                     break;
 
                 case "Учетная запись":
-                    childForm = new AccountForm();
+                    childForm = new AccountForm(_isAdmin);
                     this.Parent.Hide();
                     childForm.StartPosition = FormStartPosition.CenterScreen;
                     childForm.Show();

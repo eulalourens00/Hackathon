@@ -68,6 +68,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "DocumentationForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "DocumentationForm";
             ResumeLayout(false);
             PerformLayout();

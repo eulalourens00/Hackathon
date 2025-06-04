@@ -5,10 +5,12 @@ namespace client{
     public partial class ObjectsManagementForm : Form
     {
         private DBController controller = new DBController("dataBase.db");
-        public ObjectsManagementForm()
+        private readonly bool _isAdmin;
+        public ObjectsManagementForm(bool isAdmin = false)
         {
             InitializeComponent();
             LoadData();
+            _isAdmin = isAdmin;
         }
         private void LoadData()
         {

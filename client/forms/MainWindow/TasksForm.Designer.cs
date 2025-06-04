@@ -68,6 +68,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "TasksForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "TasksForm";
             ResumeLayout(false);
             PerformLayout();

@@ -91,6 +91,7 @@
             MinimizeBox = false;
             MinimumSize = new Size(900, 600);
             Name = "ObjectsManagementForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MainWindow";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);

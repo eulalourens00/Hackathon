@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SqliteDB;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,12 @@ namespace client.forms.MainWindow
 {
     public partial class WelcomeScreen : Form
     {
+        private readonly Database _database;
+        private readonly AuthService _authService;
         public WelcomeScreen()
         {
             InitializeComponent();
+            _database = new Database("dataBase.db");
         }
 
         private void forgotpassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -30,13 +34,31 @@ namespace client.forms.MainWindow
 
         private void newuserlink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show(
-                "Для создания учетной записи в системе необходимо обратиться к Вашему руководителю." +
-                "\n\nEmail: admin@pomegranate.com",
-                "Регистрация в системе",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
+            var authService = new AuthService(@"C:\Hackathon\dataBase.db", _database);
+            var registrationForm = new Registration(authService);
+            registrationForm.Show();
+        }
+
+        private void loginbutton_Click(object sender, EventArgs e)
+        {
+            string dbFilePath = @"C:\Hackathon\dataBase.db";
+            var authService = new AuthService(dbFilePath, _database);
+
+            Users user = authService.Authenticate(
+                Login.Text,
+                Password.Text
             );
+
+            if (user != null)
+            { MessageBox.Show($"Добро пожаловать, {user.username}!");
+
+                bool isAdmin = (Login.Text == "admin" && Password.Text == "admin_09");
+                var accountForm = new AccountForm(isAdmin);
+                accountForm.Show();
+                this.Hide();
+            }
+            else
+            { MessageBox.Show("Неверные данные."); }
         }
     }
 }

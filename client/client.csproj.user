@@ -13,6 +13,9 @@
     <Compile Update="forms\MainWindow\EmployeesForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="forms\MainWindow\Registration.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="forms\MainWindow\WelcomeScreen.cs">
       <SubType>Form</SubType>
     </Compile>

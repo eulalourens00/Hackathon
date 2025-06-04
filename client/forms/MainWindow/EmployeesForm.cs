@@ -12,9 +12,11 @@ namespace client.forms.MainWindow
 {
     public partial class EmployeesForm : Form
     {
-        public EmployeesForm()
+        private readonly bool _isAdmin;
+        public EmployeesForm(bool isAdmin)
         {
             InitializeComponent();
+            _isAdmin = isAdmin;
         }
     }
 }

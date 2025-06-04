@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WelcomeScreen));
-            collapsibleSidebar1 = new CollapsibleSidebar();
             pictureBox1 = new PictureBox();
             label1 = new Label();
             pictureBox2 = new PictureBox();
@@ -43,24 +42,11 @@
             newuserlink = new LinkLabel();
             label4 = new Label();
             label5 = new Label();
+            collapsibleSidebar1 = new CollapsibleSidebar();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
-            // 
-            // collapsibleSidebar1
-            // 
-            collapsibleSidebar1.AutoSize = false;
-            collapsibleSidebar1.BackColor = Color.FromArgb(50, 50, 50);
-            collapsibleSidebar1.Dock = DockStyle.Left;
-            collapsibleSidebar1.ForeColor = Color.White;
-            collapsibleSidebar1.ImageScalingSize = new Size(20, 20);
-            collapsibleSidebar1.LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow;
-            collapsibleSidebar1.Location = new Point(0, 0);
-            collapsibleSidebar1.Name = "collapsibleSidebar1";
-            collapsibleSidebar1.Size = new Size(62, 553);
-            collapsibleSidebar1.TabIndex = 0;
-            collapsibleSidebar1.Text = "collapsibleSidebar1";
             // 
             // pictureBox1
             // 
@@ -115,6 +101,7 @@
             loginbutton.TabIndex = 5;
             loginbutton.Text = "Войти";
             loginbutton.UseVisualStyleBackColor = false;
+            loginbutton.Click += loginbutton_Click;
             // 
             // label2
             // 
@@ -206,6 +193,20 @@
             label5.TabIndex = 13;
             label5.Text = "Добро пожаловать!";
             // 
+            // collapsibleSidebar1
+            // 
+            collapsibleSidebar1.AutoSize = false;
+            collapsibleSidebar1.BackColor = Color.FromArgb(50, 50, 50);
+            collapsibleSidebar1.Dock = DockStyle.Left;
+            collapsibleSidebar1.ForeColor = Color.White;
+            collapsibleSidebar1.ImageScalingSize = new Size(20, 20);
+            collapsibleSidebar1.LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow;
+            collapsibleSidebar1.Location = new Point(0, 0);
+            collapsibleSidebar1.Name = "collapsibleSidebar1";
+            collapsibleSidebar1.Size = new Size(62, 553);
+            collapsibleSidebar1.TabIndex = 0;
+            collapsibleSidebar1.Text = "collapsibleSidebar1";
+            // 
             // WelcomeScreen
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -244,8 +245,6 @@
         }
 
         #endregion
-
-        private CollapsibleSidebar collapsibleSidebar1;
         private PictureBox pictureBox1;
         private Label label1;
         private PictureBox pictureBox2;
@@ -259,5 +258,6 @@
         private LinkLabel newuserlink;
         private Label label4;
         private Label label5;
+        private CollapsibleSidebar collapsibleSidebar1;
     }
 }
