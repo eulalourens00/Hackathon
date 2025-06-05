@@ -40,7 +40,6 @@
             EmailReg = new TextBox();
             regbutton = new Button();
             existuserlink = new LinkLabel();
-            FunnyBaton = new Button();
             showPassword = new Button();
             showRepPassword = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -170,15 +169,6 @@
             existuserlink.Text = "Я являюсь сотрудником";
             existuserlink.LinkClicked += existuserlink_LinkClicked;
             // 
-            // FunnyBaton
-            // 
-            FunnyBaton.BackColor = Color.FromArgb(199, 44, 65);
-            FunnyBaton.Location = new Point(-3, 2);
-            FunnyBaton.Name = "FunnyBaton";
-            FunnyBaton.Size = new Size(62, 553);
-            FunnyBaton.TabIndex = 21;
-            FunnyBaton.UseVisualStyleBackColor = false;
-            // 
             // showPassword
             // 
             showPassword.BackColor = Color.FromArgb(224, 216, 208);
@@ -221,7 +211,6 @@
             ClientSize = new Size(882, 553);
             Controls.Add(showRepPassword);
             Controls.Add(showPassword);
-            Controls.Add(FunnyBaton);
             Controls.Add(existuserlink);
             Controls.Add(regbutton);
             Controls.Add(EmailReg);
@@ -259,7 +248,6 @@
         private TextBox EmailReg;
         private Button regbutton;
         private LinkLabel existuserlink;
-        private Button FunnyBaton;
         private Button showPassword;
         private Button showRepPassword;
     }

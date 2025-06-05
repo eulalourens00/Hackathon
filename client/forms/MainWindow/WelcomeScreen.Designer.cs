@@ -42,7 +42,6 @@
             newuserlink = new LinkLabel();
             label4 = new Label();
             label5 = new Label();
-            FunnyBaton = new Button();
             showPassword = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -53,7 +52,7 @@
             // 
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
-            pictureBox1.Location = new Point(181, 23);
+            pictureBox1.Location = new Point(160, 23);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(564, 105);
             pictureBox1.TabIndex = 1;
@@ -74,7 +73,7 @@
             pictureBox2.BackColor = Color.Transparent;
             pictureBox2.BackgroundImage = (Image)resources.GetObject("pictureBox2.BackgroundImage");
             pictureBox2.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox2.Location = new Point(83, 79);
+            pictureBox2.Location = new Point(44, 79);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(92, 106);
             pictureBox2.TabIndex = 3;
@@ -96,7 +95,7 @@
             loginbutton.BackColor = Color.FromArgb(199, 44, 65);
             loginbutton.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
             loginbutton.ForeColor = Color.White;
-            loginbutton.Location = new Point(340, 394);
+            loginbutton.Location = new Point(302, 394);
             loginbutton.Name = "loginbutton";
             loginbutton.Size = new Size(214, 38);
             loginbutton.TabIndex = 5;
@@ -110,7 +109,7 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             label2.ForeColor = Color.FromArgb(64, 64, 64);
-            label2.Location = new Point(271, 211);
+            label2.Location = new Point(236, 203);
             label2.Name = "label2";
             label2.Size = new Size(363, 28);
             label2.TabIndex = 6;
@@ -128,7 +127,7 @@
             // Login
             // 
             Login.BackColor = Color.FromArgb(224, 216, 208);
-            Login.Location = new Point(340, 256);
+            Login.Location = new Point(302, 252);
             Login.Name = "Login";
             Login.PlaceholderText = "Логин";
             Login.Size = new Size(214, 27);
@@ -137,7 +136,7 @@
             // Password
             // 
             Password.BackColor = Color.FromArgb(224, 216, 208);
-            Password.Location = new Point(340, 318);
+            Password.Location = new Point(302, 317);
             Password.Name = "Password";
             Password.PasswordChar = '*';
             Password.PlaceholderText = "Пароль";
@@ -152,7 +151,7 @@
             forgotpassword.BackColor = Color.Transparent;
             forgotpassword.Cursor = Cursors.Hand;
             forgotpassword.LinkColor = Color.FromArgb(119, 119, 119);
-            forgotpassword.Location = new Point(430, 348);
+            forgotpassword.Location = new Point(397, 347);
             forgotpassword.Name = "forgotpassword";
             forgotpassword.Size = new Size(124, 20);
             forgotpassword.TabIndex = 10;
@@ -167,7 +166,7 @@
             newuserlink.BackColor = Color.Transparent;
             newuserlink.Cursor = Cursors.Hand;
             newuserlink.LinkColor = Color.FromArgb(119, 119, 119);
-            newuserlink.Location = new Point(373, 435);
+            newuserlink.Location = new Point(342, 435);
             newuserlink.Name = "newuserlink";
             newuserlink.Size = new Size(143, 20);
             newuserlink.TabIndex = 11;
@@ -190,21 +189,11 @@
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 204);
             label5.ForeColor = Color.Maroon;
-            label5.Location = new Point(297, 161);
+            label5.Location = new Point(271, 151);
             label5.Name = "label5";
             label5.Size = new Size(309, 41);
             label5.TabIndex = 13;
             label5.Text = "Добро пожаловать!";
-            // 
-            // FunnyBaton
-            // 
-            FunnyBaton.BackColor = Color.FromArgb(199, 44, 65);
-            FunnyBaton.BackgroundImage = (Image)resources.GetObject("FunnyBaton.BackgroundImage");
-            FunnyBaton.Location = new Point(1, 1);
-            FunnyBaton.Name = "FunnyBaton";
-            FunnyBaton.Size = new Size(62, 553);
-            FunnyBaton.TabIndex = 14;
-            FunnyBaton.UseVisualStyleBackColor = false;
             // 
             // showPassword
             // 
@@ -215,7 +204,7 @@
             showPassword.FlatStyle = FlatStyle.System;
             showPassword.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             showPassword.ForeColor = Color.Transparent;
-            showPassword.Location = new Point(530, 319);
+            showPassword.Location = new Point(492, 318);
             showPassword.Name = "showPassword";
             showPassword.Size = new Size(23, 25);
             showPassword.TabIndex = 23;
@@ -231,7 +220,6 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(882, 553);
             Controls.Add(showPassword);
-            Controls.Add(FunnyBaton);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(newuserlink);
@@ -274,7 +262,6 @@
         private LinkLabel newuserlink;
         private Label label4;
         private Label label5;
-        private Button FunnyBaton;
         private Button showPassword;
     }
 }
