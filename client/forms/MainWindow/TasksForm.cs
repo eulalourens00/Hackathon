@@ -12,9 +12,11 @@ namespace client.forms.MainWindow
 {
     public partial class TasksForm : Form
     {
-        public TasksForm()
+        private readonly bool _isAdmin;
+        public TasksForm(bool isAdmin)
         {
             InitializeComponent();
+            _isAdmin = isAdmin;
         }
     }
 }

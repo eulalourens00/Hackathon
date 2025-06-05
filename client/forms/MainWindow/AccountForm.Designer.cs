@@ -68,6 +68,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "AccountForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "AccountForm";
             ResumeLayout(false);
             PerformLayout();

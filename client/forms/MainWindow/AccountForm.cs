@@ -12,10 +12,16 @@ namespace client.forms.MainWindow
 {
     public partial class AccountForm : Form
     {
+
         public AccountForm()
         {
+            MessageBox.Show($"isAdmin={AdminSession.isAdmin}", "Отладка",
+                          MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             InitializeComponent();
         }
+
+        // что за фигня вообще. админ тру  крч. попытка зайти обратно на учетку - флс. не работает ептель
 
     }
 }
