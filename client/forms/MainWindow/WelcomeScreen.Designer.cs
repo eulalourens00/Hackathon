@@ -42,7 +42,8 @@
             newuserlink = new LinkLabel();
             label4 = new Label();
             label5 = new Label();
-            collapsibleSidebar1 = new CollapsibleSidebar();
+            FunnyBaton = new Button();
+            showPassword = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -138,9 +139,11 @@
             Password.BackColor = Color.FromArgb(224, 216, 208);
             Password.Location = new Point(340, 318);
             Password.Name = "Password";
+            Password.PasswordChar = '*';
             Password.PlaceholderText = "Пароль";
             Password.Size = new Size(214, 27);
             Password.TabIndex = 9;
+            Password.UseSystemPasswordChar = true;
             // 
             // forgotpassword
             // 
@@ -193,19 +196,32 @@
             label5.TabIndex = 13;
             label5.Text = "Добро пожаловать!";
             // 
-            // collapsibleSidebar1
+            // FunnyBaton
             // 
-            collapsibleSidebar1.AutoSize = false;
-            collapsibleSidebar1.BackColor = Color.FromArgb(50, 50, 50);
-            collapsibleSidebar1.Dock = DockStyle.Left;
-            collapsibleSidebar1.ForeColor = Color.White;
-            collapsibleSidebar1.ImageScalingSize = new Size(20, 20);
-            collapsibleSidebar1.LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow;
-            collapsibleSidebar1.Location = new Point(0, 0);
-            collapsibleSidebar1.Name = "collapsibleSidebar1";
-            collapsibleSidebar1.Size = new Size(62, 553);
-            collapsibleSidebar1.TabIndex = 0;
-            collapsibleSidebar1.Text = "collapsibleSidebar1";
+            FunnyBaton.BackColor = Color.FromArgb(199, 44, 65);
+            FunnyBaton.BackgroundImage = (Image)resources.GetObject("FunnyBaton.BackgroundImage");
+            FunnyBaton.Location = new Point(1, 1);
+            FunnyBaton.Name = "FunnyBaton";
+            FunnyBaton.Size = new Size(62, 553);
+            FunnyBaton.TabIndex = 14;
+            FunnyBaton.UseVisualStyleBackColor = false;
+            // 
+            // showPassword
+            // 
+            showPassword.BackColor = Color.FromArgb(224, 216, 208);
+            showPassword.BackgroundImageLayout = ImageLayout.Zoom;
+            showPassword.FlatAppearance.BorderColor = Color.Red;
+            showPassword.FlatAppearance.BorderSize = 0;
+            showPassword.FlatStyle = FlatStyle.System;
+            showPassword.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            showPassword.ForeColor = Color.Transparent;
+            showPassword.Location = new Point(530, 319);
+            showPassword.Name = "showPassword";
+            showPassword.Size = new Size(23, 25);
+            showPassword.TabIndex = 23;
+            showPassword.Text = "👁️";
+            showPassword.UseVisualStyleBackColor = false;
+            showPassword.Click += showPassword_Click;
             // 
             // WelcomeScreen
             // 
@@ -214,6 +230,8 @@
             BackColor = SystemColors.Control;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(882, 553);
+            Controls.Add(showPassword);
+            Controls.Add(FunnyBaton);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(newuserlink);
@@ -222,14 +240,12 @@
             Controls.Add(Login);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(collapsibleSidebar1);
             Controls.Add(loginbutton);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox1);
             Controls.Add(pictureBox2);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            MainMenuStrip = collapsibleSidebar1;
             MaximizeBox = false;
             MaximumSize = new Size(900, 600);
             MinimizeBox = false;
@@ -258,6 +274,7 @@
         private LinkLabel newuserlink;
         private Label label4;
         private Label label5;
-        private CollapsibleSidebar collapsibleSidebar1;
+        private Button FunnyBaton;
+        private Button showPassword;
     }
 }

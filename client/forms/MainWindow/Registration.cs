@@ -28,7 +28,7 @@ namespace client.forms.MainWindow
         private void regbutton_Click(object sender, EventArgs e)
         {
             if (_authService == null)
-            { MessageBox.Show("Ошибка: Сервис авторизации не инициализирован!"); return;}
+            { MessageBox.Show("Ошибка: Сервис авторизации не инициализирован!"); return; }
 
             if (string.IsNullOrWhiteSpace(EmailReg.Text) || string.IsNullOrWhiteSpace(LoginReg.Text) ||
             string.IsNullOrWhiteSpace(PasswordReg.Text) || string.IsNullOrWhiteSpace(RepPasswordReg.Text))
@@ -40,7 +40,30 @@ namespace client.forms.MainWindow
             { MessageBox.Show("Регистрация успешна!"); this.Close(); }
 
             else
-            { MessageBox.Show("Произошла ошибка.");}
+            { MessageBox.Show("Произошла ошибка."); }
+        }
+
+        private void showPassword_Click(object sender, EventArgs e)
+        {
+            if (PasswordReg.UseSystemPasswordChar == true)
+            {
+                PasswordReg.UseSystemPasswordChar = false;
+                PasswordReg.PasswordChar = '\0';
+            }
+            else if (PasswordReg.UseSystemPasswordChar == false)
+            { PasswordReg.UseSystemPasswordChar = true; }
+
+        }
+
+        private void showRepPassword_Click(object sender, EventArgs e)
+        {
+            if (RepPasswordReg.UseSystemPasswordChar == true)
+            {
+                RepPasswordReg.UseSystemPasswordChar = false;
+                RepPasswordReg.PasswordChar = '\0';
+            }
+            else if (RepPasswordReg.UseSystemPasswordChar == false)
+            { RepPasswordReg.UseSystemPasswordChar = true; }
         }
     }
 }
