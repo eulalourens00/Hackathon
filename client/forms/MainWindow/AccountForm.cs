@@ -12,14 +12,12 @@ namespace client.forms.MainWindow
 {
     public partial class AccountForm : Form
     {
-        private readonly bool _isAdmin;
 
-        public AccountForm(bool isAdmin = false)
+        public AccountForm()
         {
-            MessageBox.Show($"isAdmin={isAdmin}", "Отладка",
+            MessageBox.Show($"isAdmin={AdminSession.isAdmin}", "Отладка",
                           MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            _isAdmin = isAdmin;
             InitializeComponent();
         }
 

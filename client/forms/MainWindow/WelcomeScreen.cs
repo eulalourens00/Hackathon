@@ -15,6 +15,7 @@ namespace client.forms.MainWindow
     {
         private readonly Database _database;
         private readonly AuthService _authService;
+        private bool isAdmin;
         public WelcomeScreen()
         {
             InitializeComponent();
@@ -52,13 +53,24 @@ namespace client.forms.MainWindow
             if (user != null)
             { MessageBox.Show($"Добро пожаловать, {user.username}!");
 
-                bool isAdmin = (Login.Text == "admin" && Password.Text == "admin_09");
-                var accountForm = new AccountForm(isAdmin);
-                accountForm.Show();
+                AdminSession.isAdmin = (Login.Text == "admin" && Password.Text == "admin_09");
+                AdminSession.Username = user.username;
+                //var accountForm = new AccountForm(isAdmin);
+                //accountForm.Show();
+                //this.Hide();
+                new AccountForm().Show();
                 this.Hide();
             }
             else
             { MessageBox.Show("Неверные данные."); }
         }
+    }
+
+
+    // для сохранения админки, ибо она сбрасывается между переходами на формы
+    public static class AdminSession
+    {
+        public static bool isAdmin { get; set; }
+        public static string Username { get; set; }
     }
 }

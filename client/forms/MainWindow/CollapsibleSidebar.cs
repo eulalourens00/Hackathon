@@ -29,29 +29,29 @@ namespace client.forms.MainWindow
         public CollapsibleSidebar(bool isAdmin = false)
         {
             InitializeSidebar();
-            SetupMenuItems();
+            SetupMenuItems(AdminSession.isAdmin);
             _isAdmin = isAdmin;
         }
         // ЧТО-ТО ДОБАВИЛА УТРОМ ПОСМТРИ
-        public void SetAdminStatus(bool isAdmin)
-        {
-            _isAdmin = isAdmin;
-            this.Items.Clear();
-            SetupMenuItems();
-        }
+        //public void SetAdminStatus(bool isAdmin)
+        //{
+        //    _isAdmin = isAdmin;
+        //    this.Items.Clear();
+        //    SetupMenuItems();
+        //}
 
-        public void SetAdminAccess(bool isAdmin)
-        {
-            _isAdmin = isAdmin;
-            foreach (ToolStripItem item in Items)
-            {
-                if (item is ToolStripButton btn && btn.Tag is MenuItemData data && data.Text == "Сотрудники")
-                {
-                    btn.Visible = _isAdmin;
-                    break;
-                }
-            }
-        }
+        //public void SetAdminAccess(bool isAdmin)
+        //{
+        //    _isAdmin = isAdmin;
+        //    foreach (ToolStripItem item in Items)
+        //    {
+        //        if (item is ToolStripButton btn && btn.Tag is MenuItemData data && data.Text == "Сотрудники")
+        //        {
+        //            btn.Visible = _isAdmin;
+        //            break;
+        //        }
+        //    }
+        //}
         //
         private void InitializeSidebar()
         {
@@ -64,7 +64,7 @@ namespace client.forms.MainWindow
             this.ForeColor = Color.White;
         }
 
-        private void SetupMenuItems()
+        private void SetupMenuItems(bool isAdmin)
         {
             //шторка
             var menuItems = new[]
@@ -91,7 +91,7 @@ namespace client.forms.MainWindow
 
             foreach (var item in menuItems)
             {
-                if (item.AdminOnly && !_isAdmin) { continue; }
+                if (item.AdminOnly && !AdminSession.isAdmin) { continue; }
 
                 var menuItem = new ToolStripButton
                 {
@@ -132,35 +132,35 @@ namespace client.forms.MainWindow
                     break;
 
                 case "Управление объектами":
-                    childForm = new ObjectsManagementForm(_isAdmin);
+                    childForm = new ObjectsManagementForm(AdminSession.isAdmin);
                     this.Parent.Hide();
                     childForm.StartPosition = FormStartPosition.CenterScreen;
                     childForm.Show();
                     break;
 
                 case "Задачи":
-                    childForm = new TasksForm(_isAdmin);
+                    childForm = new TasksForm(AdminSession.isAdmin);
                     this.Parent.Hide();
                     childForm.StartPosition = FormStartPosition.CenterScreen;
                     childForm.Show();
                     break;
 
                 case "Документация":
-                    childForm = new DocumentationForm(_isAdmin);
+                    childForm = new DocumentationForm(AdminSession.isAdmin);
                     this.Parent.Hide();
                     childForm.StartPosition = FormStartPosition.CenterScreen;
                     childForm.Show();
                     break;
 
                 case "Сотрудники":
-                    childForm = new EmployeesForm(_isAdmin);
+                    childForm = new EmployeesForm(AdminSession.isAdmin);
                     this.Parent.Hide();
                     childForm.StartPosition = FormStartPosition.CenterScreen;
                     childForm.Show();
                     break;
 
                 case "Учетная запись":
-                    childForm = new AccountForm(_isAdmin);
+                    childForm = new AccountForm();
                     this.Parent.Hide();
                     childForm.StartPosition = FormStartPosition.CenterScreen;
                     childForm.Show();
