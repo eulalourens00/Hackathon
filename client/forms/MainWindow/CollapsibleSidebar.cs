@@ -26,33 +26,14 @@ namespace client.forms.MainWindow
             public bool AdminOnly { get; set; } = false;
         }
 
-        public CollapsibleSidebar(bool isAdmin = false)
+        public CollapsibleSidebar():this(false) { }
+        public CollapsibleSidebar(bool isAdmin)
         {
             InitializeSidebar();
             SetupMenuItems(AdminSession.isAdmin);
             _isAdmin = isAdmin;
         }
-        // ЧТО-ТО ДОБАВИЛА УТРОМ ПОСМТРИ
-        //public void SetAdminStatus(bool isAdmin)
-        //{
-        //    _isAdmin = isAdmin;
-        //    this.Items.Clear();
-        //    SetupMenuItems();
-        //}
 
-        //public void SetAdminAccess(bool isAdmin)
-        //{
-        //    _isAdmin = isAdmin;
-        //    foreach (ToolStripItem item in Items)
-        //    {
-        //        if (item is ToolStripButton btn && btn.Tag is MenuItemData data && data.Text == "Сотрудники")
-        //        {
-        //            btn.Visible = _isAdmin;
-        //            break;
-        //        }
-        //    }
-        //}
-        //
         private void InitializeSidebar()
         {
             this.Width = CollapsedWidth;

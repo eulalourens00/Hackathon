@@ -40,7 +40,9 @@
             EmailReg = new TextBox();
             regbutton = new Button();
             existuserlink = new LinkLabel();
-            collapsibleSidebar1 = new CollapsibleSidebar();
+            FunnyBaton = new Button();
+            showPassword = new Button();
+            showRepPassword = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -114,18 +116,22 @@
             PasswordReg.BackColor = Color.FromArgb(224, 216, 208);
             PasswordReg.Location = new Point(307, 300);
             PasswordReg.Name = "PasswordReg";
+            PasswordReg.PasswordChar = '*';
             PasswordReg.PlaceholderText = "Пароль";
             PasswordReg.Size = new Size(214, 27);
             PasswordReg.TabIndex = 16;
+            PasswordReg.UseSystemPasswordChar = true;
             // 
             // RepPasswordReg
             // 
             RepPasswordReg.BackColor = Color.FromArgb(224, 216, 208);
             RepPasswordReg.Location = new Point(307, 350);
             RepPasswordReg.Name = "RepPasswordReg";
+            RepPasswordReg.PasswordChar = '*';
             RepPasswordReg.PlaceholderText = "Подтвердите пароль";
             RepPasswordReg.Size = new Size(214, 27);
             RepPasswordReg.TabIndex = 17;
+            RepPasswordReg.UseSystemPasswordChar = true;
             // 
             // EmailReg
             // 
@@ -164,19 +170,48 @@
             existuserlink.Text = "Я являюсь сотрудником";
             existuserlink.LinkClicked += existuserlink_LinkClicked;
             // 
-            // collapsibleSidebar1
+            // FunnyBaton
             // 
-            collapsibleSidebar1.AutoSize = false;
-            collapsibleSidebar1.BackColor = Color.FromArgb(200, 50, 50, 50);
-            collapsibleSidebar1.Dock = DockStyle.Left;
-            collapsibleSidebar1.ForeColor = Color.White;
-            collapsibleSidebar1.ImageScalingSize = new Size(20, 20);
-            collapsibleSidebar1.LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow;
-            collapsibleSidebar1.Location = new Point(0, 0);
-            collapsibleSidebar1.Name = "collapsibleSidebar1";
-            collapsibleSidebar1.Size = new Size(62, 553);
-            collapsibleSidebar1.TabIndex = 21;
-            collapsibleSidebar1.Text = "collapsibleSidebar1";
+            FunnyBaton.BackColor = Color.FromArgb(199, 44, 65);
+            FunnyBaton.Location = new Point(-3, 2);
+            FunnyBaton.Name = "FunnyBaton";
+            FunnyBaton.Size = new Size(62, 553);
+            FunnyBaton.TabIndex = 21;
+            FunnyBaton.UseVisualStyleBackColor = false;
+            // 
+            // showPassword
+            // 
+            showPassword.BackColor = Color.FromArgb(224, 216, 208);
+            showPassword.BackgroundImageLayout = ImageLayout.Zoom;
+            showPassword.FlatAppearance.BorderColor = Color.Red;
+            showPassword.FlatAppearance.BorderSize = 0;
+            showPassword.FlatStyle = FlatStyle.System;
+            showPassword.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            showPassword.ForeColor = Color.Transparent;
+            showPassword.Location = new Point(496, 301);
+            showPassword.Name = "showPassword";
+            showPassword.Size = new Size(23, 25);
+            showPassword.TabIndex = 22;
+            showPassword.Text = "👁️";
+            showPassword.UseVisualStyleBackColor = false;
+            showPassword.Click += showPassword_Click;
+            // 
+            // showRepPassword
+            // 
+            showRepPassword.BackColor = Color.FromArgb(224, 216, 208);
+            showRepPassword.BackgroundImageLayout = ImageLayout.Zoom;
+            showRepPassword.FlatAppearance.BorderColor = Color.Red;
+            showRepPassword.FlatAppearance.BorderSize = 0;
+            showRepPassword.FlatStyle = FlatStyle.System;
+            showRepPassword.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            showRepPassword.ForeColor = Color.Transparent;
+            showRepPassword.Location = new Point(496, 351);
+            showRepPassword.Name = "showRepPassword";
+            showRepPassword.Size = new Size(23, 25);
+            showRepPassword.TabIndex = 23;
+            showRepPassword.Text = "👁️";
+            showRepPassword.UseVisualStyleBackColor = false;
+            showRepPassword.Click += showRepPassword_Click;
             // 
             // Registration
             // 
@@ -184,7 +219,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(882, 553);
-            Controls.Add(collapsibleSidebar1);
+            Controls.Add(showRepPassword);
+            Controls.Add(showPassword);
+            Controls.Add(FunnyBaton);
             Controls.Add(existuserlink);
             Controls.Add(regbutton);
             Controls.Add(EmailReg);
@@ -196,7 +233,7 @@
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox1);
-            MainMenuStrip = collapsibleSidebar1;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Registration";
@@ -222,6 +259,8 @@
         private TextBox EmailReg;
         private Button regbutton;
         private LinkLabel existuserlink;
-        private CollapsibleSidebar collapsibleSidebar1;
+        private Button FunnyBaton;
+        private Button showPassword;
+        private Button showRepPassword;
     }
 }

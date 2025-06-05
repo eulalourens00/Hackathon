@@ -37,7 +37,8 @@ namespace client.forms.MainWindow
         {
             var authService = new AuthService(@"C:\Hackathon\dataBase.db", _database);
             var registrationForm = new Registration(authService);
-            registrationForm.Show();
+            registrationForm.ShowDialog();
+
         }
 
         private void loginbutton_Click(object sender, EventArgs e)
@@ -51,18 +52,28 @@ namespace client.forms.MainWindow
             );
 
             if (user != null)
-            { MessageBox.Show($"Добро пожаловать, {user.username}!");
+            {
+                MessageBox.Show($"Добро пожаловать, {user.username}!");
 
                 AdminSession.isAdmin = (Login.Text == "admin" && Password.Text == "admin_09");
                 AdminSession.Username = user.username;
-                //var accountForm = new AccountForm(isAdmin);
-                //accountForm.Show();
-                //this.Hide();
+
                 new AccountForm().Show();
                 this.Hide();
             }
             else
             { MessageBox.Show("Неверные данные."); }
+        }
+
+        private void showPassword_Click(object sender, EventArgs e)
+        {
+            if (Password.UseSystemPasswordChar == true)
+            {
+                Password.UseSystemPasswordChar = false;
+                Password.PasswordChar = '\0';
+            }
+            else if (Password.UseSystemPasswordChar == false)
+            { Password.UseSystemPasswordChar = true; }
         }
     }
 
