@@ -62,6 +62,10 @@ namespace client.forms.MainWindow
 
         private void EndMakeObject_Click(object sender, EventArgs e)
         {
+            // не дай бог дважды создаст чертила
+            var btn = sender as Button;
+            if (btn != null) btn.Enabled = false;
+
             if (ObjectTypecomboBox.SelectedItem == null)
             {
                 MessageBox.Show("Выберите тип объекта.");
@@ -85,7 +89,6 @@ namespace client.forms.MainWindow
             try
             {
                 var selectedType = (ObjectTypeItem)ObjectTypecomboBox.SelectedItem;
-
                 NewObject = new Objects
                 {
                     name = NameBox.Text.Trim(),
@@ -95,14 +98,27 @@ namespace client.forms.MainWindow
                     number = number
                 };
 
+                // существует ли такой объект заманали уже
+                var existing = controller.objectsModel.Query()
+             .FirstOrDefault(o => o.name == NewObject.name && o.number == NewObject.number);
+
+                if (existing != null)
+                {
+                    MessageBox.Show("Объект уже существует!");
+                    return;
+                }
+
                 controller.objectsModel.CreateRecord(NewObject);
                 DialogResult = DialogResult.OK;
                 Close();
             }
-            catch (SQLiteException ex) when (ex.ErrorCode == (int)SQLiteErrorCode.Constraint)
-            { MessageBox.Show("Ошибка: нарушение ограничений базы данных. Проверьте введенные данные."); }
             catch (Exception ex)
-            {  MessageBox.Show($"Ошибка при создании объекта: {ex.Message}");}
+            {  MessageBox.Show($"Ошибка: {ex.Message}"); }
+            finally
+            {
+                if (btn != null) btn.Enabled = true;
+                Close();
+            }
         }
 
         private void CancelObject_Click(object sender, EventArgs e)

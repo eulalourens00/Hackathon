@@ -29,6 +29,7 @@
             MakeObject = new Button();
             collapsibleSidebar1 = new forms.MainWindow.CollapsibleSidebar();
             ObjectLayout = new TableLayoutPanel();
+            ShowObjects = new Button();
             SuspendLayout();
             // 
             // TestLabel
@@ -46,9 +47,10 @@
             // 
             MakeObject.BackColor = SystemColors.InactiveCaption;
             MakeObject.FlatAppearance.BorderColor = Color.Black;
-            MakeObject.Font = new Font("Segoe UI", 9F);
+            MakeObject.FlatAppearance.BorderSize = 0;
+            MakeObject.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             MakeObject.ForeColor = Color.Black;
-            MakeObject.Location = new Point(616, 501);
+            MakeObject.Location = new Point(713, 491);
             MakeObject.Name = "MakeObject";
             MakeObject.Size = new Size(102, 31);
             MakeObject.TabIndex = 3;
@@ -72,16 +74,32 @@
             // 
             // ObjectLayout
             // 
+            ObjectLayout.AutoScroll = true;
             ObjectLayout.BackColor = Color.Transparent;
             ObjectLayout.ColumnCount = 2;
-            ObjectLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 74.15459F));
-            ObjectLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.8454113F));
+            ObjectLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 71.13164F));
+            ObjectLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 28.86836F));
+            ObjectLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 136F));
             ObjectLayout.Location = new Point(75, 51);
             ObjectLayout.Name = "ObjectLayout";
             ObjectLayout.RowCount = 1;
             ObjectLayout.RowStyles.Add(new RowStyle());
-            ObjectLayout.Size = new Size(414, 409);
+            ObjectLayout.Size = new Size(433, 409);
             ObjectLayout.TabIndex = 5;
+            // 
+            // ShowObjects
+            // 
+            ShowObjects.BackColor = SystemColors.InactiveCaption;
+            ShowObjects.FlatAppearance.BorderColor = Color.Black;
+            ShowObjects.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            ShowObjects.ForeColor = Color.Black;
+            ShowObjects.Location = new Point(75, 491);
+            ShowObjects.Name = "ShowObjects";
+            ShowObjects.Size = new Size(433, 31);
+            ShowObjects.TabIndex = 7;
+            ShowObjects.Text = "Показать объекты";
+            ShowObjects.UseVisualStyleBackColor = false;
+            ShowObjects.Click += ShowObjects_Click;
             // 
             // ObjectsManagementForm
             // 
@@ -90,6 +108,7 @@
             BackColor = Color.White;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(882, 553);
+            Controls.Add(ShowObjects);
             Controls.Add(ObjectLayout);
             Controls.Add(collapsibleSidebar1);
             Controls.Add(MakeObject);
@@ -113,5 +132,6 @@
         private Button MakeObject;
         private forms.MainWindow.CollapsibleSidebar collapsibleSidebar1;
         private TableLayoutPanel ObjectLayout;
+        private Button ShowObjects;
     }
 }
