@@ -66,3 +66,4 @@ C:\Hackathon\client\bin\Debug\net9.0-windows\runtimes\win-x86\native\SQLite.Inte
 C:\Hackathon\client\bin\Debug\net9.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Hackathon\client\bin\Debug\net9.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Hackathon\client\obj\Debug\net9.0-windows\client.forms.MainWindow.Registration.resources
+C:\Hackathon\client\obj\Debug\net9.0-windows\client.forms.MainWindow.NewObjectForm.resources

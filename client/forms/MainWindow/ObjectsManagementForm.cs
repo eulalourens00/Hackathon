@@ -9,22 +9,51 @@ namespace client{
         public ObjectsManagementForm(bool isAdmin = false)
         {
             InitializeComponent();
-            LoadData();
+            UpdateObjectsLayout();
             _isAdmin = isAdmin;
         }
-        private void LoadData()
+
+        private void UpdateObjectsLayout()
         {
-            controller.objectsModel.CreateRecord(new Objects
-            {
-                object_type = 1,
-                name = "Goida House",
-                description = "Goida Description",
-                location = "Goida Street",
-                number = 1
-            });
+            ObjectLayout.Controls.Clear();
             List<Objects> objects = controller.objectsModel.Query();
 
-            dataGridView1.DataSource = objects;
+            foreach (Objects obj in objects)
+            {
+                Button objButton = new Button
+                {
+                    Size = new Size(240, 30),
+                    Text = obj.name + ", " + obj.number
+                };
+                ObjectLayout.Controls.Add(objButton);
+
+                Button deleteButton = new Button
+                {
+                    Size = new Size(75, 30),
+                    Text = "Delete"
+                };
+
+                deleteButton.Click += (s, e) =>
+                {
+                    ObjectLayout.Controls.Remove(objButton);
+                    ObjectLayout.Controls.Remove(deleteButton);
+                    controller.objectsModel.DeleteRecord(obj);
+                };
+                ObjectLayout.Controls.Add(deleteButton);
+            }
+        }
+
+        private void MakeObject_Click(object sender, EventArgs e)
+        {
+            using (NewObjectForm objectForm = new NewObjectForm())
+            {
+                if (objectForm.ShowDialog() == DialogResult.OK)
+                {
+                    Objects newObject = objectForm.NewObject;
+                    controller.objectsModel.CreateRecord(newObject);
+                    UpdateObjectsLayout();
+                }
+            }
         }
     }
 }
