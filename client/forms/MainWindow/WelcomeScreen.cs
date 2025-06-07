@@ -37,7 +37,9 @@ namespace client.forms.MainWindow
         {
             var authService = new AuthService(@"C:\Hackathon\dataBase.db", _database);
             var registrationForm = new Registration(authService);
-            registrationForm.ShowDialog();
+           
+            registrationForm.Show();
+            this.Hide();
 
         }
 
