@@ -1,4 +1,5 @@
 using SqliteDB;
+using System.Data.SQLite;
 
 public class Objects : BaseModel<Objects> {
     //new string _tablename = "objects"; // необязательно

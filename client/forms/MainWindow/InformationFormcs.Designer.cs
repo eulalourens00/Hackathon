@@ -35,7 +35,7 @@
             NumberBox = new TextBox();
             DescriptionBox = new TextBox();
             label1 = new Label();
-            CancelObject = new Button();
+            EditObject = new Button();
             SaveButton = new Button();
             SuspendLayout();
             // 
@@ -94,17 +94,17 @@
             label1.TabIndex = 10;
             label1.Text = "Информационный бланк";
             // 
-            // CancelObject
+            // EditObject
             // 
-            CancelObject.BackColor = SystemColors.Control;
-            CancelObject.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            CancelObject.Location = new Point(12, 372);
-            CancelObject.Name = "CancelObject";
-            CancelObject.Size = new Size(119, 32);
-            CancelObject.TabIndex = 11;
-            CancelObject.Text = "Выйти";
-            CancelObject.UseVisualStyleBackColor = false;
-            CancelObject.Click += CancelObject_Click;
+            EditObject.BackColor = SystemColors.Control;
+            EditObject.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            EditObject.Location = new Point(12, 372);
+            EditObject.Name = "EditObject";
+            EditObject.Size = new Size(143, 32);
+            EditObject.TabIndex = 11;
+            EditObject.Text = "Редактировать";
+            EditObject.UseVisualStyleBackColor = false;
+            EditObject.Click += EditObject_Click;
             // 
             // SaveButton
             // 
@@ -114,7 +114,7 @@
             SaveButton.Name = "SaveButton";
             SaveButton.Size = new Size(148, 32);
             SaveButton.TabIndex = 12;
-            SaveButton.Text = "Редактировать";
+            SaveButton.Text = "Сохранить";
             SaveButton.UseVisualStyleBackColor = false;
             SaveButton.Click += SaveButton_Click;
             // 
@@ -125,7 +125,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(348, 430);
             Controls.Add(SaveButton);
-            Controls.Add(CancelObject);
+            Controls.Add(EditObject);
             Controls.Add(label1);
             Controls.Add(DescriptionBox);
             Controls.Add(NumberBox);
@@ -149,7 +149,7 @@
         private TextBox NumberBox;
         private TextBox DescriptionBox;
         private Label label1;
-        private Button CancelObject;
+        private Button EditObject;
         private Button SaveButton;
     }
 }

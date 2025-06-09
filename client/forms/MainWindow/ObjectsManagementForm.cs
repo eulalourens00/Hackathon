@@ -40,7 +40,8 @@ namespace client{
                     {
                         Size = new Size(240, 30),
                         Text = $"{obj.name}, {obj.number}",
-                        Tag = obj.id
+                        Tag = obj.id,
+                        BackColor = Color.FromArgb(185, 209, 234)
                     };
                     objButton.Click += (s, e) =>
                     {
@@ -67,10 +68,6 @@ namespace client{
                         MakeObject.MouseLeave += (s, e) =>
                             MakeObject.BackColor = Color.FromArgb(150, 175, 200);
 
-                        deleteButton.MouseEnter += (s, e) =>
-                           deleteButton.BackColor = Color.FromArgb(129, 155, 181);
-                        deleteButton.MouseLeave += (s, e) =>
-                            deleteButton.BackColor = Color.FromArgb(150, 175, 200);
                     }
 
                 }

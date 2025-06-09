@@ -45,7 +45,7 @@
             // 
             // MakeObject
             // 
-            MakeObject.BackColor = SystemColors.InactiveCaption;
+            MakeObject.BackColor = Color.FromArgb(224, 224, 224);
             MakeObject.FlatAppearance.BorderColor = Color.Black;
             MakeObject.FlatAppearance.BorderSize = 0;
             MakeObject.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
@@ -89,7 +89,7 @@
             // 
             // ShowObjects
             // 
-            ShowObjects.BackColor = SystemColors.InactiveCaption;
+            ShowObjects.BackColor = SystemColors.GradientActiveCaption;
             ShowObjects.FlatAppearance.BorderColor = Color.Black;
             ShowObjects.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             ShowObjects.ForeColor = Color.Black;
@@ -108,9 +108,9 @@
             BackColor = Color.White;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(882, 553);
+            Controls.Add(collapsibleSidebar1);
             Controls.Add(ShowObjects);
             Controls.Add(ObjectLayout);
-            Controls.Add(collapsibleSidebar1);
             Controls.Add(MakeObject);
             Controls.Add(TestLabel);
             FormBorderStyle = FormBorderStyle.FixedSingle;

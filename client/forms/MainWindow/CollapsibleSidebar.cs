@@ -50,7 +50,6 @@ namespace client.forms.MainWindow
             //шторка
             var menuItems = new[]
             {
-                new MenuItemData { Icon = "🏠", Text = "Главная", Checked = false },
                 new MenuItemData { Icon = "📊", Text = "Управление объектами", Checked = false },
                 new MenuItemData { Icon = "✅", Text = "Задачи", Checked = true },
                 new MenuItemData { Icon = "📄", Text = "Документация", Checked = false },
@@ -105,13 +104,6 @@ namespace client.forms.MainWindow
 
             switch (menuItemText)
             {
-                case "Главная":
-                    childForm = new WelcomeScreen();
-                    this.Parent.Hide();
-                    childForm.StartPosition = FormStartPosition.CenterScreen;
-                    childForm.Show();
-                    break;
-
                 case "Управление объектами":
                     childForm = new ObjectsManagementForm(AdminSession.isAdmin);
                     this.Parent.Hide();
