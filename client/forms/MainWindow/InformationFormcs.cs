@@ -30,6 +30,9 @@ namespace client.forms.MainWindow
             _isAdmin = isAdmin;
             _controller = new DBController(@"C:\Hackathon\dataBase.db");
 
+            EditObject.Visible = false;
+            SaveButton.Visible = false;
+
             SetupControls();
             LoadObjectData();
         }
@@ -41,7 +44,6 @@ namespace client.forms.MainWindow
             DescriptionBox.ReadOnly = true;
             LocationBox.ReadOnly = true;
 
-            SaveButton.Enabled = _isAdmin;
         }
 
 
@@ -66,40 +68,51 @@ namespace client.forms.MainWindow
             catch (Exception ex)
             { MessageBox.Show($"Ошибка загрузки данных: {ex.Message}"); }
         }
+        private void EditObject_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            if (_isAdmin)
+            {
+                try
+                {
+                    NameBox.ReadOnly = false;
+                    NumberBox.ReadOnly = false;
+                    DescriptionBox.ReadOnly = false;
+                    LocationBox.ReadOnly = false;
+
+                    SaveButton.Enabled = true;
+                    EditObject.Enabled = false;
+                }
+                finally
+                {
+                    this.Visible = true;
+                }
+            }
+
+        }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if (!_isAdmin) return;
-
-            try
+            this.Visible = false ;
+            if (_isAdmin)
             {
-                _currentObject.name = NameBox.Text;
-                _currentObject.number = int.Parse(NumberBox.Text);
-                _currentObject.description = DescriptionBox.Text;
-                _currentObject.location = LocationBox.Text;
+                try
+                {
+                    _currentObject.name = NameBox.Text;
+                    _currentObject.number = int.Parse(NumberBox.Text);
+                    _currentObject.description = DescriptionBox.Text;
+                    _currentObject.location = LocationBox.Text;
 
-                _controller.objectsModel.UpdateRecord(_currentObject);
+                    _controller.objectsModel.UpdateRecord(_currentObject);
 
-                MessageBox.Show("Данные успешно сохранены");
-                DialogResult = DialogResult.OK;
-                Close();
-
-                SetupControls();
+                    SetupControls();
+                }
+                finally
+                {
+                    this.Visible = true;
+                }
             }
-            catch (Exception ex)
-            { MessageBox.Show($"Ошибка сохранения: {ex.Message}"); }
         }
 
-        private void EditObject_Click(object sender, EventArgs e)
-        {
-            NameBox.ReadOnly = false;
-            NumberBox.ReadOnly = false;
-            DescriptionBox.ReadOnly = false;
-            LocationBox.ReadOnly = false;
-
-            SaveButton.Enabled = true;
-
-            ((Button)sender).Enabled = false;
-        }
     }
 }
