@@ -54,7 +54,7 @@ namespace client.forms.MainWindow
                 ObjectTypecomboBox.ValueMember = "Id";
 
                 if (ObjectTypecomboBox.Items.Count > 0)
-                    ObjectTypecomboBox.SelectedIndex = 0;
+                { ObjectTypecomboBox.SelectedIndex = 0; }
             }
             catch (Exception ex)
             {  MessageBox.Show($"Ошибка загрузки типов объектов: {ex.Message}");}

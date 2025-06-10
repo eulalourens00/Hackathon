@@ -26,7 +26,7 @@ namespace client{
         {
             ObjectLayout.Controls.Clear();
             ObjectLayout.SuspendLayout();
-            
+
             ObjectLayout.AutoScroll = true;
             ObjectLayout.HorizontalScroll.Enabled = false;
 
@@ -80,7 +80,7 @@ namespace client{
                 ObjectLayout.PerformLayout();
             }
         }
-        
+
         private void DeleteObject(int id)
         {
             if (MessageBox.Show("Удалить объект?", "Подтверждение", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -119,12 +119,83 @@ namespace client{
                     UpdateObjectsLayout();
                 }
             }
-            
+
         }
 
         private void ShowObjects_Click(object sender, EventArgs e)
         {
             LoadObjects();
         }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string searchText = SearchBox.Text.Trim().ToLower();
+
+                if (string.IsNullOrEmpty(searchText)) { LoadObjects(); return; }
+
+                var filteredObjects = controller.objectsModel.Query()
+                    .Where(obj => obj.name.ToLower().Contains(searchText) ||
+                                 obj.number.ToString().Contains(searchText))
+                    .ToList();
+
+                UpdateFilteredObjectsLayout(filteredObjects);
+            }
+            catch (Exception ex)
+            { MessageBox.Show($"Ошибка поиска: {ex.Message}"); }
+        }
+        private void UpdateFilteredObjectsLayout(List<Objects> objects)
+        {
+            ObjectLayout.Controls.Clear();
+            ObjectLayout.SuspendLayout();
+
+            ObjectLayout.AutoScroll = true;
+            ObjectLayout.HorizontalScroll.Enabled = false;
+
+            try
+            {
+                foreach (var obj in objects)
+                {
+                    var objButton = new Button
+                    {
+                        Size = new Size(240, 30),
+                        Text = $"{obj.name}, {obj.number}",
+                        Tag = obj.id,
+                        BackColor = Color.FromArgb(185, 209, 234)
+                    };
+                    objButton.Click += (s, e) =>
+                    {
+                        var form = new InformationFormcs(obj.id);
+                        form.ShowDialog();
+                        LoadObjects();
+                    };
+                    ObjectLayout.Controls.Add(objButton);
+
+                    var deleteButton = new Button
+                    {
+                        Size = new Size(75, 30),
+                        Text = "Удалить",
+                        Enabled = _isAdmin,
+                        Tag = obj.id,
+                    };
+                    deleteButton.Click += (s, e) =>
+                    {
+                        DeleteObject(obj.id);
+                        LoadObjects();
+                    };
+                    ObjectLayout.Controls.Add(deleteButton);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка загрузки: {ex.Message}");
+            }
+            finally
+            {
+                ObjectLayout.ResumeLayout(true);
+                ObjectLayout.PerformLayout();
+            }
+        }
     }
-}
+ }

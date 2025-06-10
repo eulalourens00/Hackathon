@@ -41,7 +41,6 @@ namespace client.forms.MainWindow
             DescriptionBox.ReadOnly = true;
             LocationBox.ReadOnly = true;
 
-            SaveButton.Enabled = _isAdmin;
         }
 
 
@@ -58,48 +57,105 @@ namespace client.forms.MainWindow
                     DescriptionBox.Text = _currentObject.description;
                     LocationBox.Text = _currentObject.location;
 
+                    LoadComboBoxData();
+
                     if (_currentObject.object_type > 0)
                     {
+                        foreach (ObjectTypeItem item in ObjectTypecomboBox.Items)
+                        {
+                            if (item.Id == _currentObject.object_type)
+                            {
+                                ObjectTypecomboBox.SelectedItem = item;
+                                break;
+                            }
+                        }
                     }
                 }
             }
             catch (Exception ex)
             { MessageBox.Show($"Ошибка загрузки данных: {ex.Message}"); }
         }
+        private void EditObject_Click(object sender, EventArgs e)
+        {
+            if (_isAdmin)
+            {
+                try
+                {
+                    NameBox.ReadOnly = false;
+                    NumberBox.ReadOnly = false;
+                    DescriptionBox.ReadOnly = false;
+                    LocationBox.ReadOnly = false;
+
+                    SaveButton.Enabled = true;
+                    EditObject.Enabled = false;
+                }
+                finally
+                {
+                    _isEditMode = true;
+                }
+            }
+            else { MessageBox.Show("Недоступно."); }
+        }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if (!_isAdmin) return;
-
-            try
+            if (_isAdmin)
             {
-                _currentObject.name = NameBox.Text;
-                _currentObject.number = int.Parse(NumberBox.Text);
-                _currentObject.description = DescriptionBox.Text;
-                _currentObject.location = LocationBox.Text;
+                try
+                {
+                    _currentObject.name = NameBox.Text;
+                    _currentObject.number = int.Parse(NumberBox.Text);
+                    _currentObject.description = DescriptionBox.Text;
+                    _currentObject.location = LocationBox.Text;
 
-                _controller.objectsModel.UpdateRecord(_currentObject);
+                    _controller.objectsModel.UpdateRecord(_currentObject);
 
-                MessageBox.Show("Данные успешно сохранены");
-                DialogResult = DialogResult.OK;
-                Close();
-
-                SetupControls();
+                    SetupControls();
+                }
+                finally
+                {
+                    _isEditMode = false;
+                }
             }
-            catch (Exception ex)
-            { MessageBox.Show($"Ошибка сохранения: {ex.Message}"); }
+            else { MessageBox.Show("Недоступно."); }
         }
 
-        private void EditObject_Click(object sender, EventArgs e)
+        
+        
+        
+        // для комбо бокса при инфв бланке (нью форма)
+        private void LoadComboBoxData()
         {
-            NameBox.ReadOnly = false;
-            NumberBox.ReadOnly = false;
-            DescriptionBox.ReadOnly = false;
-            LocationBox.ReadOnly = false;
+            try
+            {
+                ObjectTypecomboBox.Items.Clear();
+                string dbPath = @"Data Source=C:\Hackathon\dataBase.db;Version=3;";
 
-            SaveButton.Enabled = true;
+                using (var connection = new SQLiteConnection(dbPath))
+                using (var command = new SQLiteCommand("SELECT id, name FROM objects_types", connection))
+                {
+                    connection.Open();
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            ObjectTypecomboBox.Items.Add(new ObjectTypeItem
+                            {
+                                Id = reader.GetInt32(0),
+                                Name = reader.GetString(1)
+                            });
+                        }
+                    }
+                }
 
-            ((Button)sender).Enabled = false;
+                ObjectTypecomboBox.DisplayMember = "Name";
+                ObjectTypecomboBox.ValueMember = "Id";
+
+                if (ObjectTypecomboBox.Items.Count > 0)
+                { ObjectTypecomboBox.SelectedIndex = 0; }
+            }
+            catch (Exception ex)
+            { MessageBox.Show($"Ошибка загрузки типов объектов: {ex.Message}"); }
         }
     }
 }
