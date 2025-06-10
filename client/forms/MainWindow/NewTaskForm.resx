@@ -117,14 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="collapsibleSidebar1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAA5kAAAJgCAYAAAAAvKdDAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAA/7JJREFUeF7s/YuTJdd1n4mWKUuCSTVBUrBAjBC+kE2Nrzi4sK9oDobUUAM/aBs2
+        DwAACw8BkvkDpQAA/7JJREFUeF7s/YuTJdd1n4mWKUuCSTVBUrBAjBC+kE2Nrzi4sK9oDobUUAM/aBs2
         bI/hgSVbhg1ZssLyjUEMPSFGMAI3AmEGwhPmVWDCxFyz+WgAAolHN7q66pysrnfXq6u6q7sKVY0qVKO7
         0aBJ3f8DN9Zae+Vee+2d55x6P86vor/OzJ07n+ecPPmdtfbOgQH39//70x8vAwAAAAAAAADoP9QL//N/
         /s9/PjXFXfz5jQAAAAAAAAAA6A8GBgb+zOnT/8e9p0+f/nXvijv9+xm/EQAAAAAAAAAA/cG/+3f/7hd+

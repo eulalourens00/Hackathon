@@ -22,7 +22,7 @@ namespace client.forms.MainWindow
         private readonly DBController _controller;
         private Objects _currentObject;
 
-        public InformationFormcs(int objectId, bool isAdmin = true)
+        public InformationFormcs(int objectId, bool isAdmin = false)
         {
             InitializeComponent();
 

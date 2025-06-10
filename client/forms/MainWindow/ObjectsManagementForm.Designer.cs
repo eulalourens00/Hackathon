@@ -120,6 +120,7 @@
             SearchButton.Text = "🔍";
             SearchButton.UseVisualStyleBackColor = true;
             SearchButton.Click += SearchButton_Click;
+            SearchButton.Enter += SearchButton_Click;
             // 
             // ObjectsManagementForm
             // 

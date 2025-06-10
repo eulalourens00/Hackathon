@@ -31,7 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TasksForm));
             collapsibleSidebar1 = new CollapsibleSidebar();
             label1 = new Label();
-            SuspendLayout();
+            MakeTaskButton = new Button();
+            ShowAllTAsksButoon = new Button();
+            OnlyMyTasksCheck = new CheckBox();
+            TaskLayout = new TableLayoutPanel();
             // 
             // collapsibleSidebar1
             // 
@@ -50,11 +53,69 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(166, 104);
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            label1.Location = new Point(80, 9);
             label1.Name = "label1";
-            label1.Size = new Size(56, 20);
+            label1.Size = new Size(162, 32);
             label1.TabIndex = 1;
-            label1.Text = "ТАСКИ";
+            label1.Text = "Центр задач";
+            // 
+            // MakeTaskButton
+            // 
+            MakeTaskButton.BackColor = SystemColors.GradientActiveCaption;
+            MakeTaskButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            MakeTaskButton.Location = new Point(776, 509);
+            MakeTaskButton.Name = "MakeTaskButton";
+            MakeTaskButton.Size = new Size(94, 29);
+            MakeTaskButton.TabIndex = 2;
+            MakeTaskButton.Text = "Создать";
+            MakeTaskButton.UseVisualStyleBackColor = false;
+            MakeTaskButton.Click += MakeTaskButton_Click;
+            // 
+            // ShowAllTAsksButoon
+            // 
+            ShowAllTAsksButoon.BackColor = Color.Silver;
+            ShowAllTAsksButoon.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            ShowAllTAsksButoon.Location = new Point(80, 512);
+            ShowAllTAsksButoon.Name = "ShowAllTAsksButoon";
+            ShowAllTAsksButoon.Size = new Size(286, 29);
+            ShowAllTAsksButoon.TabIndex = 3;
+            ShowAllTAsksButoon.Text = "Все задачи";
+            ShowAllTAsksButoon.UseVisualStyleBackColor = false;
+            ShowAllTAsksButoon.Click += ShowAllTAsksButoon_Click;
+            // 
+            // OnlyMyTasksCheck
+            // 
+            OnlyMyTasksCheck.AutoSize = true;
+            OnlyMyTasksCheck.BackColor = SystemColors.GradientActiveCaption;
+            OnlyMyTasksCheck.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
+            OnlyMyTasksCheck.FlatAppearance.BorderSize = 2;
+            OnlyMyTasksCheck.FlatStyle = FlatStyle.Flat;
+            OnlyMyTasksCheck.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            OnlyMyTasksCheck.ForeColor = SystemColors.ControlText;
+            OnlyMyTasksCheck.Location = new Point(372, 514);
+            OnlyMyTasksCheck.Name = "OnlyMyTasksCheck";
+            OnlyMyTasksCheck.Size = new Size(122, 24);
+            OnlyMyTasksCheck.TabIndex = 4;
+            OnlyMyTasksCheck.Text = "Мои задания";
+            OnlyMyTasksCheck.UseVisualStyleBackColor = false;
+            OnlyMyTasksCheck.CheckedChanged += OnlyMyTasksCheck_CheckedChanged;
+            // 
+            // TaskLayout
+            // 
+            TaskLayout.AutoScroll = true;
+            TaskLayout.BackColor = Color.Transparent;
+            TaskLayout.ColumnCount = 2;
+            TaskLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 73.903F));
+            TaskLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 26.0969982F));
+            TaskLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 136F));
+            TaskLayout.Location = new Point(80, 67);
+            TaskLayout.Name = "TaskLayout";
+            TaskLayout.RowCount = 1;
+            TaskLayout.RowStyles.Add(new RowStyle());
+            TaskLayout.Size = new Size(433, 409);
+            TaskLayout.TabIndex = 6;
             // 
             // TasksForm
             // 
@@ -62,6 +123,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(882, 553);
+            Controls.Add(TaskLayout);
+            Controls.Add(OnlyMyTasksCheck);
+            Controls.Add(ShowAllTAsksButoon);
+            Controls.Add(MakeTaskButton);
             Controls.Add(collapsibleSidebar1);
             Controls.Add(label1);
             MainMenuStrip = collapsibleSidebar1;
@@ -78,5 +143,9 @@
 
         private CollapsibleSidebar collapsibleSidebar1;
         private Label label1;
+        private Button MakeTaskButton;
+        private Button ShowAllTAsksButoon;
+        private CheckBox OnlyMyTasksCheck;
+        private TableLayoutPanel TaskLayout;
     }
 }
