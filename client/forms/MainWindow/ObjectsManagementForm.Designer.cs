@@ -30,6 +30,8 @@
             collapsibleSidebar1 = new forms.MainWindow.CollapsibleSidebar();
             ObjectLayout = new TableLayoutPanel();
             ShowObjects = new Button();
+            SearchBox = new TextBox();
+            SearchButton = new Button();
             SuspendLayout();
             // 
             // TestLabel
@@ -50,9 +52,9 @@
             MakeObject.FlatAppearance.BorderSize = 0;
             MakeObject.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             MakeObject.ForeColor = Color.Black;
-            MakeObject.Location = new Point(713, 491);
+            MakeObject.Location = new Point(375, 491);
             MakeObject.Name = "MakeObject";
-            MakeObject.Size = new Size(102, 31);
+            MakeObject.Size = new Size(129, 31);
             MakeObject.TabIndex = 3;
             MakeObject.Text = "Создать ";
             MakeObject.UseVisualStyleBackColor = false;
@@ -77,8 +79,8 @@
             ObjectLayout.AutoScroll = true;
             ObjectLayout.BackColor = Color.Transparent;
             ObjectLayout.ColumnCount = 2;
-            ObjectLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 71.13164F));
-            ObjectLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 28.86836F));
+            ObjectLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 73.903F));
+            ObjectLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 26.0969982F));
             ObjectLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 136F));
             ObjectLayout.Location = new Point(75, 51);
             ObjectLayout.Name = "ObjectLayout";
@@ -95,11 +97,29 @@
             ShowObjects.ForeColor = Color.Black;
             ShowObjects.Location = new Point(75, 491);
             ShowObjects.Name = "ShowObjects";
-            ShowObjects.Size = new Size(433, 31);
+            ShowObjects.Size = new Size(298, 31);
             ShowObjects.TabIndex = 7;
             ShowObjects.Text = "Показать объекты";
             ShowObjects.UseVisualStyleBackColor = false;
             ShowObjects.Click += ShowObjects_Click;
+            // 
+            // SearchBox
+            // 
+            SearchBox.Location = new Point(536, 50);
+            SearchBox.Name = "SearchBox";
+            SearchBox.PlaceholderText = "Поиск";
+            SearchBox.Size = new Size(279, 27);
+            SearchBox.TabIndex = 8;
+            // 
+            // SearchButton
+            // 
+            SearchButton.Location = new Point(833, 48);
+            SearchButton.Name = "SearchButton";
+            SearchButton.Size = new Size(37, 29);
+            SearchButton.TabIndex = 9;
+            SearchButton.Text = "🔍";
+            SearchButton.UseVisualStyleBackColor = true;
+            SearchButton.Click += SearchButton_Click;
             // 
             // ObjectsManagementForm
             // 
@@ -108,11 +128,13 @@
             BackColor = Color.White;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(882, 553);
+            Controls.Add(SearchButton);
+            Controls.Add(MakeObject);
+            Controls.Add(SearchBox);
             Controls.Add(collapsibleSidebar1);
             Controls.Add(ShowObjects);
-            Controls.Add(ObjectLayout);
-            Controls.Add(MakeObject);
             Controls.Add(TestLabel);
+            Controls.Add(ObjectLayout);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MainMenuStrip = collapsibleSidebar1;
             MaximizeBox = false;
@@ -133,5 +155,8 @@
         private forms.MainWindow.CollapsibleSidebar collapsibleSidebar1;
         private TableLayoutPanel ObjectLayout;
         private Button ShowObjects;
+        private TextBox SearchBox;
+        private Button SearchButton;
+        private TableLayoutPanel SearchLayout;
     }
 }

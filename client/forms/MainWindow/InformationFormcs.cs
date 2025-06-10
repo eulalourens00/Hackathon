@@ -30,9 +30,6 @@ namespace client.forms.MainWindow
             _isAdmin = isAdmin;
             _controller = new DBController(@"C:\Hackathon\dataBase.db");
 
-            EditObject.Visible = false;
-            SaveButton.Visible = false;
-
             SetupControls();
             LoadObjectData();
         }
@@ -60,8 +57,18 @@ namespace client.forms.MainWindow
                     DescriptionBox.Text = _currentObject.description;
                     LocationBox.Text = _currentObject.location;
 
+                    LoadComboBoxData();
+
                     if (_currentObject.object_type > 0)
                     {
+                        foreach (ObjectTypeItem item in ObjectTypecomboBox.Items)
+                        {
+                            if (item.Id == _currentObject.object_type)
+                            {
+                                ObjectTypecomboBox.SelectedItem = item;
+                                break;
+                            }
+                        }
                     }
                 }
             }
@@ -70,7 +77,6 @@ namespace client.forms.MainWindow
         }
         private void EditObject_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
             if (_isAdmin)
             {
                 try
@@ -85,15 +91,14 @@ namespace client.forms.MainWindow
                 }
                 finally
                 {
-                    this.Visible = true;
+                    _isEditMode = true;
                 }
             }
-
+            else { MessageBox.Show("Недоступно."); }
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            this.Visible = false ;
             if (_isAdmin)
             {
                 try
@@ -109,10 +114,48 @@ namespace client.forms.MainWindow
                 }
                 finally
                 {
-                    this.Visible = true;
+                    _isEditMode = false;
                 }
             }
+            else { MessageBox.Show("Недоступно."); }
         }
 
+        
+        
+        
+        // для комбо бокса при инфв бланке (нью форма)
+        private void LoadComboBoxData()
+        {
+            try
+            {
+                ObjectTypecomboBox.Items.Clear();
+                string dbPath = @"Data Source=C:\Hackathon\dataBase.db;Version=3;";
+
+                using (var connection = new SQLiteConnection(dbPath))
+                using (var command = new SQLiteCommand("SELECT id, name FROM objects_types", connection))
+                {
+                    connection.Open();
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            ObjectTypecomboBox.Items.Add(new ObjectTypeItem
+                            {
+                                Id = reader.GetInt32(0),
+                                Name = reader.GetString(1)
+                            });
+                        }
+                    }
+                }
+
+                ObjectTypecomboBox.DisplayMember = "Name";
+                ObjectTypecomboBox.ValueMember = "Id";
+
+                if (ObjectTypecomboBox.Items.Count > 0)
+                { ObjectTypecomboBox.SelectedIndex = 0; }
+            }
+            catch (Exception ex)
+            { MessageBox.Show($"Ошибка загрузки типов объектов: {ex.Message}"); }
+        }
     }
 }
