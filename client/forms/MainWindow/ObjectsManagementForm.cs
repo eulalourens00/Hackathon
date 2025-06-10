@@ -45,7 +45,7 @@ namespace client{
                     };
                     objButton.Click += (s, e) =>
                     {
-                        var form = new InformationFormcs(obj.id);
+                        var form = new InformationFormcs(obj.id, _isAdmin);
                         form.ShowDialog();
                         UpdateObjectsLayout();
                     };
@@ -198,4 +198,4 @@ namespace client{
             }
         }
     }
- }
+}

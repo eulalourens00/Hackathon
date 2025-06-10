@@ -68,3 +68,4 @@ C:\Hackathon\client\bin\Debug\net9.0-windows\runtimes\win\lib\netcoreapp2.1\Syst
 C:\Hackathon\client\obj\Debug\net9.0-windows\client.forms.MainWindow.Registration.resources
 C:\Hackathon\client\obj\Debug\net9.0-windows\client.forms.MainWindow.NewObjectForm.resources
 C:\Hackathon\client\obj\Debug\net9.0-windows\client.forms.MainWindow.InformationFormcs.resources
+C:\Hackathon\client\obj\Debug\net9.0-windows\client.forms.MainWindow.NewTaskForm.resources
