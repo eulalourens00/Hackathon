@@ -25,6 +25,9 @@
     <Compile Update="forms\MainWindow\Registration.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="forms\MainWindow\TaskInformationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="forms\MainWindow\TasksForm.cs">
       <SubType>Form</SubType>
     </Compile>

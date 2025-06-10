@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using client.models;
 using SqliteDB;
-
+using System.Data.SQLite;
 namespace client {
     internal class DBController {
         public Database db;
@@ -28,6 +28,69 @@ namespace client {
             }
 
             this.objectsModel = new Objects(db);
+            this.tasksModel = new Tasks(db);
+            this.documentsModel = new Documents(db);
+            this.photosModel = new Photos(db);
+        }
+
+        public IEnumerable<dynamic> GetTasksWithUsernames()
+        {
+            var dbPath = @"Data Source=C:\Hackathon\dataBase.db;Version=3;";
+
+            using (var connection = new SQLiteConnection(dbPath))
+            {
+                connection.Open();
+                using (var command = new SQLiteCommand(
+                    "SELECT t.*, u.username FROM tasks t LEFT JOIN users u ON t.user_id = u.id",
+                    connection))
+                {
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            yield return new
+                            {
+                                Id = reader.GetInt32(0),
+                                Name = reader.GetString(1),
+                                Link = reader.GetString(2),
+                                User_Id = reader.GetInt32(3),
+                                Username = reader.IsDBNull(4) ? null : reader.GetString(4)
+                            };
+                        }
+                    }
+                }
+            }
+        }
+
+        public dynamic GetFullTaskInfo(int taskId)
+        {
+            var dbPath = @"Data Source=C:\Hackathon\dataBase.db;Version=3;";
+
+            using (var connection = new SQLiteConnection(dbPath))
+            {
+                connection.Open();
+                using (var command = new SQLiteCommand(
+                    "SELECT t.*, u.username FROM tasks t LEFT JOIN users u ON t.user_id = u.id WHERE t.id = @id",
+                    connection))
+                {
+                    command.Parameters.AddWithValue("@id", taskId);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return new
+                            {
+                                Id = reader.GetInt32(0),
+                                Name = reader.GetString(1),
+                                Link = reader.GetString(2),
+                                User_Id = reader.GetInt32(3),
+                                Username = reader.IsDBNull(4) ? null : reader.GetString(4)
+                            };
+                        }
+                    }
+                }
+            }
+            return null;
         }
     }
 }

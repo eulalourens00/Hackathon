@@ -9,7 +9,7 @@ namespace client.models
         public string Name { get; set; }
         public string Link { get; set; }
         public int User_Id { get; set; }
-
+        public string Username { get; set; }
         public Tasks() { }
         public Tasks(Database db):base(db) { }
     }
