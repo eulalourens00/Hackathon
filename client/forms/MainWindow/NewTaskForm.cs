@@ -27,6 +27,7 @@ namespace client.forms.MainWindow
             InitializeComponent();
 
             _isAdmin = isAdmin;
+            LoadEmployeeComboBox();
         }
 
         private void LoadEmployeeComboBox()
@@ -34,72 +35,60 @@ namespace client.forms.MainWindow
             try
             {
                 EmployeeComboBox.Items.Clear();
-                string dbPath = @"Data Source=C:\Hackathon\dataBase.db;Version=3;";
-
-                using (var connection = new SQLiteConnection(dbPath))
-                using (var command = new SQLiteCommand("SELECT id, name FROM users", connection))
+                using (var connection = new SQLiteConnection(@"Data Source=C:\Hackathon\dataBase.db;Version=3;"))
                 {
                     connection.Open();
+                    using (var command = new SQLiteCommand("SELECT id, username FROM users", connection))
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            EmployeeComboBox.Items.Add(new ObjectTypeItem
+                            EmployeeComboBox.Items.Add(new EmployeeItem
                             {
-                                Id = reader.GetInt32(0),
-                                Name = reader.GetString(1)
+                                id = reader.GetInt32(0),
+                                username = reader.GetString(1)
                             });
                         }
                     }
                 }
 
-                EmployeeComboBox.DisplayMember = "Name";
-                EmployeeComboBox.ValueMember = "Id";
+                EmployeeComboBox.DisplayMember = "username";
+                EmployeeComboBox.ValueMember = "id";
 
-                if (EmployeeComboBox.Items.Count > 0)
-                { EmployeeComboBox.SelectedIndex = 0; }
+                if (EmployeeComboBox.Items.Count == 0)
+                {
+                    MessageBox.Show("Нет доступных сотрудников");
+                    SaveButton.Enabled = false;
+                }
+                else
+                {  EmployeeComboBox.SelectedIndex = 0; }
             }
             catch (Exception ex)
-            { MessageBox.Show($"Ошибка загрузки сотрудников: {ex.Message}"); }
+            {  MessageBox.Show($"Ошибка загрузки сотрудников: {ex.Message}");}
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            var btn = sender as Button;
-            if (btn != null) btn.Enabled = false;
+            if (string.IsNullOrWhiteSpace(nameBox.Text) || string.IsNullOrWhiteSpace(linkBox.Text)){  MessageBox.Show("Заполните все поля");  return; }
 
-            if (string.IsNullOrWhiteSpace(nameBox.Text) ||
-                string.IsNullOrWhiteSpace(linkBox.Text))
-            {
-                MessageBox.Show("Заполните все поля.");
-                if (btn != null) btn.Enabled = true;
-                return;
-            }
+            if (EmployeeComboBox.SelectedItem == null) {  MessageBox.Show("Выберите исполнителя");  return; }
 
             try
             {
-                var selectedType = (Tasks)EmployeeComboBox.SelectedItem;
+                var selectedEmployee = (EmployeeItem)EmployeeComboBox.SelectedItem;
+
                 NewTask = new Tasks
                 {
-                    Name = nameBox.Text.Trim(),
-                    Link = linkBox.Text.Trim(),
-                    
+                    name = nameBox.Text.Trim(),
+                    link = linkBox.Text.Trim(),
+                    user_id = selectedEmployee.id,
                 };
-
-                var existing = controller.tasksModel.Query()
-                    .FirstOrDefault(t => t.Name == NewTask.Name);
-
-                if (existing != null)
-                {
-                    MessageBox.Show("Задача с таким именем уже существует.");
-                    return;
-                }
-
+                controller.tasksModel.CreateRecord(NewTask);
                 DialogResult = DialogResult.OK;
                 Close();
             }
-            finally
-            { if (btn != null) btn.Enabled = true; }
+            catch (Exception ex)
+            { MessageBox.Show($"Ошибка создания задачи: {ex.Message}"); }
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -108,5 +97,11 @@ namespace client.forms.MainWindow
             Close();
         }
 
+    }
+    // хоба блин
+    public class EmployeeItem
+    {
+        public int id { get; set; }
+        public string username { get; set; }
     }
 }

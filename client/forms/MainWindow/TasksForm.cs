@@ -33,64 +33,57 @@ namespace client.forms.MainWindow
             TaskLayout.Controls.Clear();
             TaskLayout.SuspendLayout();
 
-            TaskLayout.AutoScroll = true;
-            TaskLayout.HorizontalScroll.Enabled = false;
-
             try
             {
-                var tasks = controller.tasksModel.Query();
+                var tasks = controller.GetTasksWithUsernames();
 
-                foreach (var obj in tasks)
+                foreach (var task in tasks)
                 {
+                    
+
                     var objButton = new Button
                     {
                         Size = new Size(240, 30),
-                        Text = $"{obj.Name}",
-                        Tag = obj.Id,
+                        Text = $"{task.name} ({task.username ?? "нет исполнителя"})",
+                        Tag = task.id,
                         BackColor = Color.FromArgb(185, 209, 234)
+                        
                     };
-                    objButton.Click += (s, e) =>
-                    {
-                        var form = new InformationFormcs(obj.Id);
-                        form.ShowDialog();
-                        UpdateTasksLayout();
-                    };
-                    TaskLayout.Controls.Add(objButton);
+                    objButton.Click += (s, e) => OpenTaskDetails(task.id);
 
                     var deleteButton = new Button
                     {
                         Size = new Size(75, 30),
                         Text = "Удалить",
                         Enabled = _isAdmin,
-                        Tag = obj.Id,
+                        Tag = task.id
                     };
-                    deleteButton.Click += (s, e) => DeleteObject(obj.Id);
+                    deleteButton.Click += (s, e) => DeleteObject(task.id);
+
+                    TaskLayout.Controls.Add(objButton);
                     TaskLayout.Controls.Add(deleteButton);
-
-                    if (_isAdmin)
-                    {
-                        MakeTaskButton.MouseEnter += (s, e) =>
-                            MakeTaskButton.BackColor = Color.FromArgb(129, 155, 181);
-                        MakeTaskButton.MouseLeave += (s, e) =>
-                            MakeTaskButton.BackColor = Color.FromArgb(150, 175, 200);
-
-                    }
-
+                    
                 }
             }
             catch (Exception ex)
-            { MessageBox.Show($"Ошибка загрузки: {ex.Message}"); }
+            {  MessageBox.Show($"Ошибка обновления списка задач: {ex.Message}"); }
             finally
-            {
-                TaskLayout.ResumeLayout(true);
-                TaskLayout.PerformLayout();
-            }
+            {  TaskLayout.ResumeLayout(true); }
+
         }
+
+        private void OpenTaskDetails(int taskId)
+        {
+            var form = new TaskInformationForm(taskId, _isAdmin);
+            form.ShowDialog();
+            UpdateTasksLayout();
+        }
+
         private void DeleteObject(int id)
         {
             if (MessageBox.Show("Удалить объект?", "Подтверждение", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                var tskToDelete = controller.tasksModel.Query().FirstOrDefault(o => o.Id == id);
+                var tskToDelete = controller.tasksModel.Query().FirstOrDefault(o => o.id == id);
                 if (tskToDelete != null)
                 {
                     controller.tasksModel.DeleteRecord(tskToDelete);
@@ -115,15 +108,7 @@ namespace client.forms.MainWindow
                         if (taskForm.ShowDialog() == DialogResult.OK && taskForm.NewTask != null)
                         {
                             var existing = controller.tasksModel.Query()
-                                .FirstOrDefault(t => t.Name == taskForm.NewTask.Name);
-
-                            if (existing == null)
-                            {  controller.tasksModel.CreateRecord(taskForm.NewTask);}
-                            else
-                            {
-                                MessageBox.Show("Задача с таким именем уже существует", "Ошибка",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            }
+                                .FirstOrDefault(t => t.name == taskForm.NewTask.name);
                         }
                     }
                 }

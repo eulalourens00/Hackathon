@@ -5,9 +5,9 @@ namespace client.models
 {
      class Documents: BaseModel<Documents>
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Link { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public string link { get; set; }
 
         public Documents(Database db): base(db) { }
     }
