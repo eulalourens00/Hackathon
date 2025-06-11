@@ -45,15 +45,15 @@ namespace client.forms.MainWindow
                         {
                             EmployeeComboBox.Items.Add(new EmployeeItem
                             {
-                                Id = reader.GetInt32(0),
-                                Username = reader.GetString(1)
+                                id = reader.GetInt32(0),
+                                username = reader.GetString(1)
                             });
                         }
                     }
                 }
 
-                EmployeeComboBox.DisplayMember = "Username";
-                EmployeeComboBox.ValueMember = "Id";
+                EmployeeComboBox.DisplayMember = "username";
+                EmployeeComboBox.ValueMember = "id";
 
                 if (EmployeeComboBox.Items.Count == 0)
                 {
@@ -61,48 +61,34 @@ namespace client.forms.MainWindow
                     SaveButton.Enabled = false;
                 }
                 else
-                {
-                    EmployeeComboBox.SelectedIndex = 0;
-                }
+                {  EmployeeComboBox.SelectedIndex = 0; }
             }
             catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка загрузки сотрудников: {ex.Message}");
-            }
+            {  MessageBox.Show($"Ошибка загрузки сотрудников: {ex.Message}");}
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(nameBox.Text) || string.IsNullOrWhiteSpace(linkBox.Text))
-            {
-                MessageBox.Show("Заполните все поля");
-                return;
-            }
+            if (string.IsNullOrWhiteSpace(nameBox.Text) || string.IsNullOrWhiteSpace(linkBox.Text)){  MessageBox.Show("Заполните все поля");  return; }
 
-            if (EmployeeComboBox.SelectedItem == null)
-            {
-                MessageBox.Show("Выберите исполнителя");
-                return;
-            }
+            if (EmployeeComboBox.SelectedItem == null) {  MessageBox.Show("Выберите исполнителя");  return; }
 
             try
             {
                 var selectedEmployee = (EmployeeItem)EmployeeComboBox.SelectedItem;
+
                 NewTask = new Tasks
                 {
-                    Name = nameBox.Text.Trim(),
-                    Link = linkBox.Text.Trim(),
-                    User_Id = selectedEmployee.Id,
-                    Username = selectedEmployee.Username
+                    name = nameBox.Text.Trim(),
+                    link = linkBox.Text.Trim(),
+                    user_id = selectedEmployee.id,
                 };
-
+                controller.tasksModel.CreateRecord(NewTask);
                 DialogResult = DialogResult.OK;
                 Close();
             }
             catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка создания задачи: {ex.Message}");
-            }
+            { MessageBox.Show($"Ошибка создания задачи: {ex.Message}"); }
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -115,7 +101,7 @@ namespace client.forms.MainWindow
     // хоба блин
     public class EmployeeItem
     {
-        public int Id { get; set; }
-        public string Username { get; set; }
+        public int id { get; set; }
+        public string username { get; set; }
     }
 }

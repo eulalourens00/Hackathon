@@ -50,11 +50,11 @@ namespace client {
                         {
                             yield return new
                             {
-                                Id = reader.GetInt32(0),
-                                Name = reader.GetString(1),
-                                Link = reader.GetString(2),
-                                User_Id = reader.GetInt32(3),
-                                Username = reader.IsDBNull(4) ? null : reader.GetString(4)
+                                id = reader.GetInt32(0),
+                                name = reader.GetString(1),
+                                link = reader.GetString(2),
+                                user_id = reader.GetInt32(3),
+                                username = reader.IsDBNull(4) ? null : reader.GetString(4)
                             };
                         }
                     }
@@ -80,11 +80,11 @@ namespace client {
                         {
                             return new
                             {
-                                Id = reader.GetInt32(0),
-                                Name = reader.GetString(1),
-                                Link = reader.GetString(2),
-                                User_Id = reader.GetInt32(3),
-                                Username = reader.IsDBNull(4) ? null : reader.GetString(4)
+                                id = reader.GetInt32(0),
+                                name = reader.GetString(1),
+                                link = reader.GetString(2),
+                                user_id = reader.GetInt32(3),
+                                username = reader.IsDBNull(4) ? null : reader.GetString(4)
                             };
                         }
                     }

@@ -1,15 +1,16 @@
 ﻿using SqliteDB;
+using System.Runtime.Serialization;
 
 
 namespace client.models
 {
     public class Tasks: BaseModel<Tasks>
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Link { get; set; }
-        public int User_Id { get; set; }
-        public string Username { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public string link { get; set; }
+        public int user_id { get; set; }
+
         public Tasks() { }
         public Tasks(Database db):base(db) { }
     }

@@ -39,31 +39,30 @@ namespace client.forms.MainWindow
 
                 foreach (var task in tasks)
                 {
-                    var taskPanel = new Panel { Width = TaskLayout.Width - 25, Height = 40 };
+                    
 
                     var objButton = new Button
                     {
                         Size = new Size(240, 30),
-                        Text = $"{task.Name} ({task.Username ?? "нет исполнителя"})",
-                        Tag = task.Id,
-                        BackColor = Color.FromArgb(185, 209, 234),
-                        Dock = DockStyle.Left
+                        Text = $"{task.name} ({task.username ?? "нет исполнителя"})",
+                        Tag = task.id,
+                        BackColor = Color.FromArgb(185, 209, 234)
+                        
                     };
-                    objButton.Click += (s, e) => OpenTaskDetails(task.Id);
+                    objButton.Click += (s, e) => OpenTaskDetails(task.id);
 
                     var deleteButton = new Button
                     {
                         Size = new Size(75, 30),
                         Text = "Удалить",
                         Enabled = _isAdmin,
-                        Tag = task.Id,
-                        Dock = DockStyle.Right
+                        Tag = task.id
                     };
-                    deleteButton.Click += (s, e) => DeleteObject(task.Id);
+                    deleteButton.Click += (s, e) => DeleteObject(task.id);
 
-                    taskPanel.Controls.Add(deleteButton);
-                    taskPanel.Controls.Add(objButton);
-                    TaskLayout.Controls.Add(taskPanel);
+                    TaskLayout.Controls.Add(objButton);
+                    TaskLayout.Controls.Add(deleteButton);
+                    
                 }
             }
             catch (Exception ex)
@@ -75,7 +74,7 @@ namespace client.forms.MainWindow
 
         private void OpenTaskDetails(int taskId)
         {
-            var form = new TaskInformationForm(taskId);
+            var form = new TaskInformationForm(taskId, _isAdmin);
             form.ShowDialog();
             UpdateTasksLayout();
         }
@@ -84,7 +83,7 @@ namespace client.forms.MainWindow
         {
             if (MessageBox.Show("Удалить объект?", "Подтверждение", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                var tskToDelete = controller.tasksModel.Query().FirstOrDefault(o => o.Id == id);
+                var tskToDelete = controller.tasksModel.Query().FirstOrDefault(o => o.id == id);
                 if (tskToDelete != null)
                 {
                     controller.tasksModel.DeleteRecord(tskToDelete);
@@ -109,15 +108,7 @@ namespace client.forms.MainWindow
                         if (taskForm.ShowDialog() == DialogResult.OK && taskForm.NewTask != null)
                         {
                             var existing = controller.tasksModel.Query()
-                                .FirstOrDefault(t => t.Name == taskForm.NewTask.Name);
-
-                            if (existing == null)
-                            {  controller.tasksModel.CreateRecord(taskForm.NewTask);}
-                            else
-                            {
-                                MessageBox.Show("Задача с таким именем уже существует", "Ошибка",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            }
+                                .FirstOrDefault(t => t.name == taskForm.NewTask.name);
                         }
                     }
                 }

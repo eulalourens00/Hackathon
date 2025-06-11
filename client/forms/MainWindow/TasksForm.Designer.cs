@@ -35,6 +35,7 @@
             ShowAllTAsksButoon = new Button();
             OnlyMyTasksCheck = new CheckBox();
             TaskLayout = new TableLayoutPanel();
+            SuspendLayout();
             // 
             // collapsibleSidebar1
             // 
@@ -107,9 +108,8 @@
             TaskLayout.AutoScroll = true;
             TaskLayout.BackColor = Color.Transparent;
             TaskLayout.ColumnCount = 2;
-            TaskLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 73.903F));
-            TaskLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 26.0969982F));
-            TaskLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 136F));
+            TaskLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
+            TaskLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
             TaskLayout.Location = new Point(80, 67);
             TaskLayout.Name = "TaskLayout";
             TaskLayout.RowCount = 1;

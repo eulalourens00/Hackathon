@@ -4,9 +4,10 @@ namespace client.models
 {
      class Role: BaseModel<Role>
     {
-        public int Id { get; set; }
-        public string Name { get; set; }    
+        public int id { get; set; }
+        public string name { get; set; }    
 
+        public Role() { }
         public Role(Database db): base(db) { }
     }
 }
