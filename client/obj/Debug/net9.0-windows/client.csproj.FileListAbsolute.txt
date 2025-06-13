@@ -70,3 +70,7 @@ C:\Hackathon\client\obj\Debug\net9.0-windows\client.forms.MainWindow.NewObjectFo
 C:\Hackathon\client\obj\Debug\net9.0-windows\client.forms.MainWindow.InformationFormcs.resources
 C:\Hackathon\client\obj\Debug\net9.0-windows\client.forms.MainWindow.NewTaskForm.resources
 C:\Hackathon\client\obj\Debug\net9.0-windows\client.forms.MainWindow.TaskInformationForm.resources
+C:\Hackathon\client\obj\Debug\net9.0-windows\client.forms.MainWindow.InfoEmployeeForm.resources
+C:\Hackathon\client\obj\Debug\net9.0-windows\client.forms.MainWindow.LinkForm.resources
+C:\Hackathon\client\obj\Debug\net9.0-windows\client.forms.MainWindow.NewDocumentatioForm.resources
+C:\Hackathon\client\obj\Debug\net9.0-windows\client.forms.MainWindow.NewEmployeeForm.resources

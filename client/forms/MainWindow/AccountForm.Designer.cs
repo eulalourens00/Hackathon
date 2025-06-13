@@ -30,17 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccountForm));
             collapsibleSidebar1 = new CollapsibleSidebar();
-            AvaPicBox = new PictureBox();
+            avatarPictureBox = new PictureBox();
             ChangeAvaLik = new LinkLabel();
             label1 = new Label();
             FN_box = new TextBox();
             LN_box = new TextBox();
-            EmailBox = new TextBox();
             RoleBox = new TextBox();
             PositionBox = new TextBox();
             AdminSMS = new Button();
             InfoButton = new Button();
-            ((System.ComponentModel.ISupportInitialize)AvaPicBox).BeginInit();
+            EmailBox = new TextBox();
+            UsernameBox = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)avatarPictureBox).BeginInit();
             SuspendLayout();
             // 
             // collapsibleSidebar1
@@ -57,13 +58,13 @@
             collapsibleSidebar1.TabIndex = 0;
             collapsibleSidebar1.Text = "collapsibleSidebar1";
             // 
-            // AvaPicBox
+            // avatarPictureBox
             // 
-            AvaPicBox.Location = new Point(89, 55);
-            AvaPicBox.Name = "AvaPicBox";
-            AvaPicBox.Size = new Size(207, 197);
-            AvaPicBox.TabIndex = 1;
-            AvaPicBox.TabStop = false;
+            avatarPictureBox.Location = new Point(89, 55);
+            avatarPictureBox.Name = "avatarPictureBox";
+            avatarPictureBox.Size = new Size(207, 197);
+            avatarPictureBox.TabIndex = 1;
+            avatarPictureBox.TabStop = false;
             // 
             // ChangeAvaLik
             // 
@@ -101,23 +102,15 @@
             // LN_box
             // 
             LN_box.BackColor = Color.Lavender;
-            LN_box.Location = new Point(454, 110);
+            LN_box.Location = new Point(454, 106);
             LN_box.Name = "LN_box";
             LN_box.Size = new Size(305, 27);
             LN_box.TabIndex = 5;
             // 
-            // EmailBox
-            // 
-            EmailBox.BackColor = Color.Lavender;
-            EmailBox.Location = new Point(454, 169);
-            EmailBox.Name = "EmailBox";
-            EmailBox.Size = new Size(305, 27);
-            EmailBox.TabIndex = 6;
-            // 
             // RoleBox
             // 
             RoleBox.BackColor = Color.Lavender;
-            RoleBox.Location = new Point(454, 234);
+            RoleBox.Location = new Point(454, 270);
             RoleBox.Name = "RoleBox";
             RoleBox.Size = new Size(305, 27);
             RoleBox.TabIndex = 7;
@@ -125,7 +118,7 @@
             // PositionBox
             // 
             PositionBox.BackColor = Color.Lavender;
-            PositionBox.Location = new Point(454, 297);
+            PositionBox.Location = new Point(454, 328);
             PositionBox.Name = "PositionBox";
             PositionBox.Size = new Size(305, 27);
             PositionBox.TabIndex = 8;
@@ -154,30 +147,47 @@
             InfoButton.UseVisualStyleBackColor = false;
             InfoButton.Click += InfoButton_Click;
             // 
+            // EmailBox
+            // 
+            EmailBox.BackColor = Color.Lavender;
+            EmailBox.Location = new Point(454, 215);
+            EmailBox.Name = "EmailBox";
+            EmailBox.Size = new Size(305, 27);
+            EmailBox.TabIndex = 11;
+            // 
+            // UsernameBox
+            // 
+            UsernameBox.BackColor = Color.Lavender;
+            UsernameBox.Location = new Point(454, 161);
+            UsernameBox.Name = "UsernameBox";
+            UsernameBox.Size = new Size(305, 27);
+            UsernameBox.TabIndex = 12;
+            // 
             // AccountForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(882, 553);
+            Controls.Add(collapsibleSidebar1);
+            Controls.Add(UsernameBox);
+            Controls.Add(EmailBox);
             Controls.Add(InfoButton);
             Controls.Add(AdminSMS);
             Controls.Add(PositionBox);
             Controls.Add(RoleBox);
-            Controls.Add(EmailBox);
             Controls.Add(LN_box);
             Controls.Add(FN_box);
             Controls.Add(label1);
             Controls.Add(ChangeAvaLik);
-            Controls.Add(AvaPicBox);
-            Controls.Add(collapsibleSidebar1);
+            Controls.Add(avatarPictureBox);
             MainMenuStrip = collapsibleSidebar1;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "AccountForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AccountForm";
-            ((System.ComponentModel.ISupportInitialize)AvaPicBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)avatarPictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -185,15 +195,16 @@
         #endregion
 
         private CollapsibleSidebar collapsibleSidebar1;
-        private PictureBox AvaPicBox;
+        private PictureBox avatarPictureBox;
         private LinkLabel ChangeAvaLik;
         private Label label1;
         private TextBox FN_box;
         private TextBox LN_box;
-        private TextBox EmailBox;
         private TextBox RoleBox;
         private TextBox PositionBox;
         private Button AdminSMS;
         private Button InfoButton;
+        private TextBox EmailBox;
+        private TextBox UsernameBox;
     }
 }
