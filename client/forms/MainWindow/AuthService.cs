@@ -13,6 +13,7 @@ namespace client.forms.MainWindow
     {
         private readonly string _connectionString;
         private readonly Database _db;
+
         public AuthService(string dbFilePath, Database db)
         {
             if (string.IsNullOrEmpty(dbFilePath))

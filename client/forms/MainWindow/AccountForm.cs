@@ -21,6 +21,21 @@ namespace client.forms.MainWindow
             InitializeComponent();
         }
 
+        private void ChangeAvaLik_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void InfoButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AdminSMS_Click(object sender, EventArgs e)
+        {
+
+        }
+
         // что за фигня вообще. админ тру  крч. попытка зайти обратно на учетку - флс. не работает ептель
 
     }

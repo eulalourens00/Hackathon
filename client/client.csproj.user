@@ -13,7 +13,16 @@
     <Compile Update="forms\MainWindow\EmployeesForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="forms\MainWindow\InfoEmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="forms\MainWindow\InformationFormcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\MainWindow\NewDocumentatioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\MainWindow\NewEmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="forms\MainWindow\NewObjectForm.cs">

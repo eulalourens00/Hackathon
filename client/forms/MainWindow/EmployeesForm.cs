@@ -18,5 +18,20 @@ namespace client.forms.MainWindow
             InitializeComponent();
             _isAdmin = isAdmin;
         }
+
+        private void AddEmployeeButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ShowEmployees_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
