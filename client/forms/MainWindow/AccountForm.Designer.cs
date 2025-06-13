@@ -30,7 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccountForm));
             collapsibleSidebar1 = new CollapsibleSidebar();
+            AvaPicBox = new PictureBox();
+            ChangeAvaLik = new LinkLabel();
             label1 = new Label();
+            FN_box = new TextBox();
+            LN_box = new TextBox();
+            EmailBox = new TextBox();
+            RoleBox = new TextBox();
+            PositionBox = new TextBox();
+            AdminSMS = new Button();
+            InfoButton = new Button();
+            ((System.ComponentModel.ISupportInitialize)AvaPicBox).BeginInit();
             SuspendLayout();
             // 
             // collapsibleSidebar1
@@ -47,14 +57,102 @@
             collapsibleSidebar1.TabIndex = 0;
             collapsibleSidebar1.Text = "collapsibleSidebar1";
             // 
+            // AvaPicBox
+            // 
+            AvaPicBox.Location = new Point(89, 55);
+            AvaPicBox.Name = "AvaPicBox";
+            AvaPicBox.Size = new Size(207, 197);
+            AvaPicBox.TabIndex = 1;
+            AvaPicBox.TabStop = false;
+            // 
+            // ChangeAvaLik
+            // 
+            ChangeAvaLik.ActiveLinkColor = Color.FromArgb(0, 0, 192);
+            ChangeAvaLik.AutoSize = true;
+            ChangeAvaLik.BackColor = Color.Transparent;
+            ChangeAvaLik.LinkColor = Color.Gray;
+            ChangeAvaLik.Location = new Point(107, 255);
+            ChangeAvaLik.Name = "ChangeAvaLik";
+            ChangeAvaLik.Size = new Size(178, 20);
+            ChangeAvaLik.TabIndex = 2;
+            ChangeAvaLik.TabStop = true;
+            ChangeAvaLik.Text = "Изменить изображение";
+            ChangeAvaLik.LinkClicked += ChangeAvaLik_LinkClicked;
+            // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(290, 189);
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            label1.Location = new Point(86, 9);
             label1.Name = "label1";
-            label1.Size = new Size(63, 20);
-            label1.TabIndex = 1;
-            label1.Text = "УЧЕТКА";
+            label1.Size = new Size(213, 32);
+            label1.TabIndex = 3;
+            label1.Text = "Личный кабинет";
+            // 
+            // FN_box
+            // 
+            FN_box.BackColor = Color.Lavender;
+            FN_box.Location = new Point(454, 55);
+            FN_box.Name = "FN_box";
+            FN_box.Size = new Size(305, 27);
+            FN_box.TabIndex = 4;
+            // 
+            // LN_box
+            // 
+            LN_box.BackColor = Color.Lavender;
+            LN_box.Location = new Point(454, 110);
+            LN_box.Name = "LN_box";
+            LN_box.Size = new Size(305, 27);
+            LN_box.TabIndex = 5;
+            // 
+            // EmailBox
+            // 
+            EmailBox.BackColor = Color.Lavender;
+            EmailBox.Location = new Point(454, 169);
+            EmailBox.Name = "EmailBox";
+            EmailBox.Size = new Size(305, 27);
+            EmailBox.TabIndex = 6;
+            // 
+            // RoleBox
+            // 
+            RoleBox.BackColor = Color.Lavender;
+            RoleBox.Location = new Point(454, 234);
+            RoleBox.Name = "RoleBox";
+            RoleBox.Size = new Size(305, 27);
+            RoleBox.TabIndex = 7;
+            // 
+            // PositionBox
+            // 
+            PositionBox.BackColor = Color.Lavender;
+            PositionBox.Location = new Point(454, 297);
+            PositionBox.Name = "PositionBox";
+            PositionBox.Size = new Size(305, 27);
+            PositionBox.TabIndex = 8;
+            // 
+            // AdminSMS
+            // 
+            AdminSMS.BackColor = Color.Silver;
+            AdminSMS.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            AdminSMS.Location = new Point(454, 512);
+            AdminSMS.Name = "AdminSMS";
+            AdminSMS.Size = new Size(305, 29);
+            AdminSMS.TabIndex = 9;
+            AdminSMS.Text = "Обратиться в администрацию";
+            AdminSMS.UseVisualStyleBackColor = false;
+            AdminSMS.Click += AdminSMS_Click;
+            // 
+            // InfoButton
+            // 
+            InfoButton.BackColor = Color.Silver;
+            InfoButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            InfoButton.Location = new Point(107, 512);
+            InfoButton.Name = "InfoButton";
+            InfoButton.Size = new Size(174, 29);
+            InfoButton.TabIndex = 10;
+            InfoButton.Text = "Информация";
+            InfoButton.UseVisualStyleBackColor = false;
+            InfoButton.Click += InfoButton_Click;
             // 
             // AccountForm
             // 
@@ -62,7 +160,16 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(882, 553);
+            Controls.Add(InfoButton);
+            Controls.Add(AdminSMS);
+            Controls.Add(PositionBox);
+            Controls.Add(RoleBox);
+            Controls.Add(EmailBox);
+            Controls.Add(LN_box);
+            Controls.Add(FN_box);
             Controls.Add(label1);
+            Controls.Add(ChangeAvaLik);
+            Controls.Add(AvaPicBox);
             Controls.Add(collapsibleSidebar1);
             MainMenuStrip = collapsibleSidebar1;
             MaximizeBox = false;
@@ -70,6 +177,7 @@
             Name = "AccountForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AccountForm";
+            ((System.ComponentModel.ISupportInitialize)AvaPicBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -77,6 +185,15 @@
         #endregion
 
         private CollapsibleSidebar collapsibleSidebar1;
+        private PictureBox AvaPicBox;
+        private LinkLabel ChangeAvaLik;
         private Label label1;
+        private TextBox FN_box;
+        private TextBox LN_box;
+        private TextBox EmailBox;
+        private TextBox RoleBox;
+        private TextBox PositionBox;
+        private Button AdminSMS;
+        private Button InfoButton;
     }
 }
