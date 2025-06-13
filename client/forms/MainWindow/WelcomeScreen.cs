@@ -59,7 +59,7 @@ namespace client.forms.MainWindow
 
                 AdminSession.isAdmin = (Login.Text == "admin" && Password.Text == "admin_09");
                 AdminSession.Username = user.username;
-
+                AdminSession.CurrentUserId = user.id;
                 new AccountForm().Show();
                 this.Hide();
             }
@@ -85,5 +85,6 @@ namespace client.forms.MainWindow
     {
         public static bool isAdmin { get; set; }
         public static string Username { get; set; }
+        public static int CurrentUserId { get; set; }
     }
 }
