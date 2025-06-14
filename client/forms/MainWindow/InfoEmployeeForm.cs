@@ -12,7 +12,7 @@ namespace client.forms.MainWindow
 {
     public partial class InfoEmployeeForm : Form
     {
-        public InfoEmployeeForm()
+        public InfoEmployeeForm(int id)
         {
             InitializeComponent();
         }
