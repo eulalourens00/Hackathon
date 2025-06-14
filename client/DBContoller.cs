@@ -48,6 +48,7 @@ namespace client {
             this.documentsModel = new Documents(db);
             this.photosModel = new Photos(db);
             this.avaEmployeeModel = new AvaEmployee(db);
+            this.employeesModel = new Employees(db);
         }
 
         //tasks
