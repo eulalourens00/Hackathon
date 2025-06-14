@@ -69,9 +69,36 @@ namespace client.forms.MainWindow
 
         private void ChangeAvaLik_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            var linkPhoto = new LinkForm();
-            linkPhoto.ShowDialog();
+            //var linkPhoto = new LinkForm();
+            //linkPhoto.ShowDialog();
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        var userInfo = _controller.GetUserWithEmployeeInfo(_userId);
+                        if (userInfo != null)
+                        {
+                            string appImagePath = Path.Combine(Application.StartupPath, "images");
+                            Directory.CreateDirectory(appImagePath);
+                            string destFileName = Path.Combine(appImagePath,
+                                $"avatar_{userInfo.employee_id}_{DateTime.Now:yyyyMMddHHmmss}{Path.GetExtension(openFileDialog.FileName)}");
 
+                            File.Copy(openFileDialog.FileName, destFileName, true);
+
+                            if (_controller.SaveEmployeeAvatar(userInfo.employee_id, destFileName))
+                            {
+                                avatarPictureBox.Image = Image.FromFile(destFileName);
+                                MessageBox.Show("Аватар успешно обновлен!");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {  MessageBox.Show($"Ошибка при обновлении аватарки: {ex.Message}"); }
+                }
+            }
         }
 
         private void InfoButton_Click(object sender, EventArgs e)
@@ -99,15 +126,28 @@ namespace client.forms.MainWindow
                 if (userInfo != null)
                 {
                     var avatarPath = _controller.GetEmployeeAvatar(userInfo.employee_id);
-                    if (!string.IsNullOrEmpty(avatarPath) && File.Exists(avatarPath))
+                    if (!string.IsNullOrEmpty(avatarPath))
                     {
-                        avatarPictureBox.Image = Image.FromFile(avatarPath);
+                        string fullAvatarPath = Path.Combine(@"C:\Hackathon", avatarPath);
+
+                        if (File.Exists(fullAvatarPath))
+                        {
+                            avatarPictureBox.Image = Image.FromFile(fullAvatarPath);
+                            return;
+                        }
+                    }
+
+                    string defaultAvatarPath = @"C:\Hackathon\images\default_avatar.jpg";
+
+                    if (File.Exists(defaultAvatarPath))
+                    {
+                        avatarPictureBox.Image = Image.FromFile(defaultAvatarPath);
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Ошибка загрузки аватарки: {ex.Message}");
+                MessageBox.Show($"Ошибка загрузки аватарки: {ex.Message}");
             }
         }
     }

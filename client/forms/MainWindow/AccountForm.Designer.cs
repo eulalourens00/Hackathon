@@ -63,6 +63,7 @@
             avatarPictureBox.Location = new Point(89, 55);
             avatarPictureBox.Name = "avatarPictureBox";
             avatarPictureBox.Size = new Size(207, 197);
+            avatarPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             avatarPictureBox.TabIndex = 1;
             avatarPictureBox.TabStop = false;
             // 

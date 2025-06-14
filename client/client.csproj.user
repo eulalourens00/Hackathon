@@ -19,9 +19,6 @@
     <Compile Update="forms\MainWindow\InformationFormcs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="forms\MainWindow\LinkForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="forms\MainWindow\NewDocumentatioForm.cs">
       <SubType>Form</SubType>
     </Compile>
