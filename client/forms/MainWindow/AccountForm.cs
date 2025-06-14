@@ -69,8 +69,6 @@ namespace client.forms.MainWindow
 
         private void ChangeAvaLik_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //var linkPhoto = new LinkForm();
-            //linkPhoto.ShowDialog();
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
@@ -140,15 +138,11 @@ namespace client.forms.MainWindow
                     string defaultAvatarPath = @"C:\Hackathon\images\default_avatar.jpg";
 
                     if (File.Exists(defaultAvatarPath))
-                    {
-                        avatarPictureBox.Image = Image.FromFile(defaultAvatarPath);
-                    }
+                    {  avatarPictureBox.Image = Image.FromFile(defaultAvatarPath);  }
                 }
             }
             catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка загрузки аватарки: {ex.Message}");
-            }
+            { MessageBox.Show($"Ошибка загрузки аватарки: {ex.Message}"); }
         }
     }
 }

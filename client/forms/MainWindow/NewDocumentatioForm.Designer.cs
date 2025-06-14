@@ -30,9 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewDocumentatioForm));
             label1 = new Label();
-            FnameBox = new TextBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            NameTextBox = new TextBox();
+            FilePathTextBox = new TextBox();
             SaveButton = new Button();
             CancelButton = new Button();
             SuspendLayout();
@@ -49,66 +48,59 @@
             label1.TabIndex = 14;
             label1.Text = "Документация";
             // 
-            // FnameBox
+            // NameTextBox
             // 
-            FnameBox.Location = new Point(12, 70);
-            FnameBox.Name = "FnameBox";
-            FnameBox.PlaceholderText = "Ссылка";
-            FnameBox.Size = new Size(309, 27);
-            FnameBox.TabIndex = 15;
+            NameTextBox.Location = new Point(12, 70);
+            NameTextBox.Name = "NameTextBox";
+            NameTextBox.PlaceholderText = "Название";
+            NameTextBox.Size = new Size(309, 27);
+            NameTextBox.TabIndex = 15;
             // 
-            // textBox1
+            // FilePathTextBox
             // 
-            textBox1.Location = new Point(12, 191);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Примечания";
-            textBox1.Size = new Size(309, 162);
-            textBox1.TabIndex = 16;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(12, 126);
-            textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "XAML";
-            textBox2.Size = new Size(309, 27);
-            textBox2.TabIndex = 17;
+            FilePathTextBox.Location = new Point(12, 126);
+            FilePathTextBox.Name = "FilePathTextBox";
+            FilePathTextBox.PlaceholderText = "Путь к файлу";
+            FilePathTextBox.Size = new Size(309, 27);
+            FilePathTextBox.TabIndex = 17;
             // 
             // SaveButton
             // 
             SaveButton.BackColor = SystemColors.GradientInactiveCaption;
             SaveButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            SaveButton.Location = new Point(173, 386);
+            SaveButton.Location = new Point(173, 188);
             SaveButton.Name = "SaveButton";
             SaveButton.Size = new Size(148, 32);
             SaveButton.TabIndex = 22;
             SaveButton.Text = "Сохранить";
             SaveButton.UseVisualStyleBackColor = false;
+            SaveButton.Click += SaveButton_Click;
             // 
             // CancelButton
             // 
             CancelButton.BackColor = SystemColors.ButtonHighlight;
             CancelButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            CancelButton.Location = new Point(12, 386);
+            CancelButton.Location = new Point(12, 188);
             CancelButton.Name = "CancelButton";
             CancelButton.Size = new Size(148, 32);
             CancelButton.TabIndex = 23;
             CancelButton.Text = "Выйти";
             CancelButton.UseVisualStyleBackColor = false;
+            CancelButton.Click += CancelButton_Click;
             // 
             // NewDocumentatioForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(348, 430);
+            ClientSize = new Size(348, 242);
             Controls.Add(CancelButton);
             Controls.Add(SaveButton);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(FnameBox);
+            Controls.Add(FilePathTextBox);
+            Controls.Add(NameTextBox);
             Controls.Add(label1);
             Name = "NewDocumentatioForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "NewDocumentatioForm";
             ResumeLayout(false);
             PerformLayout();
@@ -117,9 +109,8 @@
         #endregion
 
         private Label label1;
-        private TextBox FnameBox;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox NameTextBox;
+        private TextBox FilePathTextBox;
         private Button SaveButton;
         private Button CancelButton;
     }

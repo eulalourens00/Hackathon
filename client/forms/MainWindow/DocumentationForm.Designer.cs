@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DocumentationForm));
             collapsibleSidebar1 = new CollapsibleSidebar();
             label1 = new Label();
-            EmployeesLayout = new TableLayoutPanel();
-            SearchBox = new TextBox();
-            SearchButton = new Button();
+            ObjectLayout = new TableLayoutPanel();
+            DocumentsList = new ListView();
+            ShowObjects = new Button();
             SuspendLayout();
             // 
             // collapsibleSidebar1
@@ -61,36 +61,42 @@
             label1.TabIndex = 1;
             label1.Text = "Документация";
             // 
-            // EmployeesLayout
+            // ObjectLayout
             // 
-            EmployeesLayout.AutoScroll = true;
-            EmployeesLayout.BackColor = Color.Transparent;
-            EmployeesLayout.ColumnCount = 2;
-            EmployeesLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
-            EmployeesLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
-            EmployeesLayout.Location = new Point(82, 55);
-            EmployeesLayout.Name = "EmployeesLayout";
-            EmployeesLayout.RowCount = 1;
-            EmployeesLayout.RowStyles.Add(new RowStyle());
-            EmployeesLayout.Size = new Size(433, 409);
-            EmployeesLayout.TabIndex = 7;
+            ObjectLayout.AutoScroll = true;
+            ObjectLayout.BackColor = Color.Transparent;
+            ObjectLayout.ColumnCount = 2;
+            ObjectLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
+            ObjectLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+            ObjectLayout.Location = new Point(82, 55);
+            ObjectLayout.Name = "ObjectLayout";
+            ObjectLayout.RowCount = 1;
+            ObjectLayout.RowStyles.Add(new RowStyle());
+            ObjectLayout.Size = new Size(433, 409);
+            ObjectLayout.TabIndex = 7;
             // 
-            // SearchBox
+            // DocumentsList
             // 
-            SearchBox.Location = new Point(548, 55);
-            SearchBox.Name = "SearchBox";
-            SearchBox.PlaceholderText = "Поиск";
-            SearchBox.Size = new Size(279, 27);
-            SearchBox.TabIndex = 10;
+            DocumentsList.Location = new Point(548, 55);
+            DocumentsList.Name = "DocumentsList";
+            DocumentsList.Size = new Size(322, 409);
+            DocumentsList.TabIndex = 12;
+            DocumentsList.UseCompatibleStateImageBehavior = false;
+            DocumentsList.DoubleClick += DocumentsList_DoubleClick;
             // 
-            // SearchButton
+            // ShowObjects
             // 
-            SearchButton.Location = new Point(833, 53);
-            SearchButton.Name = "SearchButton";
-            SearchButton.Size = new Size(37, 29);
-            SearchButton.TabIndex = 11;
-            SearchButton.Text = "🔍";
-            SearchButton.UseVisualStyleBackColor = true;
+            ShowObjects.BackColor = SystemColors.GradientActiveCaption;
+            ShowObjects.FlatAppearance.BorderColor = Color.Black;
+            ShowObjects.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            ShowObjects.ForeColor = Color.Black;
+            ShowObjects.Location = new Point(82, 487);
+            ShowObjects.Name = "ShowObjects";
+            ShowObjects.Size = new Size(298, 31);
+            ShowObjects.TabIndex = 13;
+            ShowObjects.Text = "Показать объекты";
+            ShowObjects.UseVisualStyleBackColor = false;
+            ShowObjects.Click += ShowObjects_Click;
             // 
             // DocumentationForm
             // 
@@ -98,9 +104,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(882, 553);
-            Controls.Add(SearchButton);
-            Controls.Add(SearchBox);
-            Controls.Add(EmployeesLayout);
+            Controls.Add(ShowObjects);
+            Controls.Add(DocumentsList);
+            Controls.Add(ObjectLayout);
             Controls.Add(label1);
             Controls.Add(collapsibleSidebar1);
             MainMenuStrip = collapsibleSidebar1;
@@ -117,8 +123,8 @@
 
         private CollapsibleSidebar collapsibleSidebar1;
         private Label label1;
-        private TableLayoutPanel EmployeesLayout;
-        private TextBox SearchBox;
-        private Button SearchButton;
+        private TableLayoutPanel ObjectLayout;
+        private ListView DocumentsList;
+        private Button ShowObjects;
     }
 }
