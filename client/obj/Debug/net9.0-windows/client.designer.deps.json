@@ -53,6 +53,25 @@
         }
       },
       "Microsoft.NETCore.Platforms/3.1.0": {},
+      "Microsoft.Web.WebView2/1.0.3296.44": {
+        "runtimeTargets": {
+          "runtimes/win-arm64/native/WebView2Loader.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "1.0.3296.44"
+          },
+          "runtimes/win-x64/native/WebView2Loader.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "1.0.3296.44"
+          },
+          "runtimes/win-x86/native/WebView2Loader.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "1.0.3296.44"
+          }
+        }
+      },
       "Microsoft.Win32.Registry/4.7.0": {
         "dependencies": {
           "System.Security.AccessControl": "4.7.0",
@@ -95,6 +114,19 @@
             "assetType": "runtime",
             "assemblyVersion": "4.0.2.0",
             "fileVersion": "4.700.19.56404"
+          }
+        }
+      },
+      "PdfiumViewer/2.13.0": {
+        "runtime": {
+          "lib/net20/PdfiumViewer.dll": {
+            "assemblyVersion": "2.13.0.0",
+            "fileVersion": "2.13.0.0"
+          }
+        },
+        "resources": {
+          "lib/net20/nl/PdfiumViewer.resources.dll": {
+            "locale": "nl"
           }
         }
       },
@@ -543,6 +575,13 @@
       "path": "microsoft.netcore.platforms/3.1.0",
       "hashPath": "microsoft.netcore.platforms.3.1.0.nupkg.sha512"
     },
+    "Microsoft.Web.WebView2/1.0.3296.44": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dDCbfdpka+X9TDpTqlJY1Ydz+BQ/KOYNtnJvXXqtBONe96rkwk9wZSLasw7yCo4NI1rXuDg2qAfDtV9K1vl8eg==",
+      "path": "microsoft.web.webview2/1.0.3296.44",
+      "hashPath": "microsoft.web.webview2.1.0.3296.44.nupkg.sha512"
+    },
     "Microsoft.Win32.Registry/4.7.0": {
       "type": "package",
       "serviceable": true,
@@ -556,6 +595,13 @@
       "sha512": "sha512-mtVirZr++rq+XCDITMUdnETD59XoeMxSpLRIII7JRI6Yj0LEDiO1pPn0ktlnIj12Ix8bfvQqQDMMIF9wC98oCA==",
       "path": "microsoft.win32.systemevents/4.7.0",
       "hashPath": "microsoft.win32.systemevents.4.7.0.nupkg.sha512"
+    },
+    "PdfiumViewer/2.13.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Nw4owBmJzDVXoMRjCnqPbET07CPOawwhcNjt+PyRaSxONN9bsFF+cm9kcMsDLEAEaxsiDJo5jls8bCQjvjidkA==",
+      "path": "pdfiumviewer/2.13.0",
+      "hashPath": "pdfiumviewer.2.13.0.nupkg.sha512"
     },
     "runtime.native.System.Data.SqlClient.sni/4.7.0": {
       "type": "package",

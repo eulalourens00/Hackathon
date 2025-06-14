@@ -59,6 +59,14 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "Microsoft.Web.WebView2": {
+              "target": "Package",
+              "version": "[1.0.3296.44, )"
+            },
+            "PdfiumViewer": {
+              "target": "Package",
+              "version": "[2.13.0, )"
+            },
             "System.Data.SQLite": {
               "target": "Package",
               "version": "[1.0.119, )"
