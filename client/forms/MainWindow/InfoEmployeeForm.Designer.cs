@@ -33,12 +33,11 @@
             FnameBox = new TextBox();
             LnameBox = new TextBox();
             EmailBox = new TextBox();
-            RoleComboBox = new ComboBox();
-            PositionComboBox = new ComboBox();
             LoginBox = new TextBox();
             PasswordBox = new TextBox();
             EditButton = new Button();
-            SaveButton = new Button();
+            RoleBox = new TextBox();
+            PositionBox = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -77,22 +76,6 @@
             EmailBox.Size = new Size(309, 27);
             EmailBox.TabIndex = 16;
             // 
-            // RoleComboBox
-            // 
-            RoleComboBox.FormattingEnabled = true;
-            RoleComboBox.Location = new Point(12, 206);
-            RoleComboBox.Name = "RoleComboBox";
-            RoleComboBox.Size = new Size(141, 28);
-            RoleComboBox.TabIndex = 20;
-            // 
-            // PositionComboBox
-            // 
-            PositionComboBox.FormattingEnabled = true;
-            PositionComboBox.Location = new Point(180, 206);
-            PositionComboBox.Name = "PositionComboBox";
-            PositionComboBox.Size = new Size(141, 28);
-            PositionComboBox.TabIndex = 21;
-            // 
             // LoginBox
             // 
             LoginBox.Location = new Point(12, 262);
@@ -111,43 +94,49 @@
             // 
             // EditButton
             // 
-            EditButton.BackColor = SystemColors.ButtonHighlight;
+            EditButton.BackColor = Color.Silver;
             EditButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            EditButton.Location = new Point(12, 370);
+            EditButton.Location = new Point(14, 368);
             EditButton.Name = "EditButton";
-            EditButton.Size = new Size(148, 32);
+            EditButton.Size = new Size(309, 32);
             EditButton.TabIndex = 24;
-            EditButton.Text = "Редактировать";
+            EditButton.Text = "Выйти";
             EditButton.UseVisualStyleBackColor = false;
+            EditButton.Click += EditButton_Click;
             // 
-            // SaveButton
+            // RoleBox
             // 
-            SaveButton.BackColor = SystemColors.GradientInactiveCaption;
-            SaveButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            SaveButton.Location = new Point(173, 370);
-            SaveButton.Name = "SaveButton";
-            SaveButton.Size = new Size(148, 32);
-            SaveButton.TabIndex = 25;
-            SaveButton.Text = "Сохранить";
-            SaveButton.UseVisualStyleBackColor = false;
+            RoleBox.Location = new Point(12, 212);
+            RoleBox.Name = "RoleBox";
+            RoleBox.PlaceholderText = "Роль";
+            RoleBox.Size = new Size(148, 27);
+            RoleBox.TabIndex = 26;
+            // 
+            // PositionBox
+            // 
+            PositionBox.Location = new Point(173, 212);
+            PositionBox.Name = "PositionBox";
+            PositionBox.PlaceholderText = "Должность";
+            PositionBox.Size = new Size(148, 27);
+            PositionBox.TabIndex = 27;
             // 
             // InfoEmployeeForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(348, 430);
-            Controls.Add(SaveButton);
+            ClientSize = new Size(335, 412);
+            Controls.Add(PositionBox);
+            Controls.Add(RoleBox);
             Controls.Add(EditButton);
             Controls.Add(PasswordBox);
             Controls.Add(LoginBox);
-            Controls.Add(PositionComboBox);
-            Controls.Add(RoleComboBox);
             Controls.Add(EmailBox);
             Controls.Add(LnameBox);
             Controls.Add(FnameBox);
             Controls.Add(label1);
             Name = "InfoEmployeeForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "InfoEmployeeForm";
             ResumeLayout(false);
             PerformLayout();
@@ -159,11 +148,10 @@
         private TextBox FnameBox;
         private TextBox LnameBox;
         private TextBox EmailBox;
-        private ComboBox RoleComboBox;
-        private ComboBox PositionComboBox;
         private TextBox LoginBox;
         private TextBox PasswordBox;
         private Button EditButton;
-        private Button SaveButton;
+        private TextBox RoleBox;
+        private TextBox PositionBox;
     }
 }

@@ -9,6 +9,7 @@ using System.Data.SQLite;
 using System.Data;
 using System.Xml.Linq;
 using System.Reflection.Metadata;
+using Microsoft.VisualBasic.ApplicationServices;
 namespace client {
     internal class DBController
     {
@@ -153,6 +154,55 @@ namespace client {
                                 last_name = reader.GetString(5),
                                 position_name = reader.IsDBNull(6) ? null : reader.GetString(6),
                                 role_name = reader.IsDBNull(7) ? null : reader.GetString(7)
+                            };
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+
+        public dynamic GetALLUserWithEmployeeInfo(int userId)
+        {
+            var dbPath = @"Data Source=C:\Hackathon\dataBase.db;Version=3;";
+
+            using (var connection = new SQLiteConnection(dbPath))
+            {
+                connection.Open();
+                using (var command = new SQLiteCommand(
+                    @"SELECT 
+                u.id as user_id,
+                u.username,
+                u.email,
+                u.password,
+                e.id as employee_id,
+                e.first_name,
+                e.last_name,
+                p.name as position_name,
+                r.name as role_name
+              FROM users u
+              JOIN employees e ON u.employee_id = e.id
+              LEFT JOIN positions p ON e.position_id = p.id
+              LEFT JOIN roles r ON e.role_id = r.id
+              WHERE u.id = @userId",
+                    connection))
+                {
+                    command.Parameters.AddWithValue("@userId", userId);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return new
+                            {
+                                user_id = reader.GetInt32(0),
+                                username = reader.GetString(1),
+                                email = reader.GetString(2),
+                                password = reader.GetString(3),
+                                employee_id = reader.GetInt32(4),
+                                first_name = reader.GetString(5),
+                                last_name = reader.GetString(6),
+                                position_name = reader.IsDBNull(7) ? null : reader.GetString(7),
+                                role_name = reader.IsDBNull(8) ? null : reader.GetString(8)
                             };
                         }
                     }
@@ -387,6 +437,61 @@ namespace client {
             xmlElement.Save(filePath);
 
             return filePath;
+        }
+
+        // Employee
+        public int AddEmployee(Employees employee, int userId)
+        {
+            var dbPath = @"Data Source=C:\Hackathon\dataBase.db;Version=3;";
+
+            using (var connection = new SQLiteConnection(dbPath))
+            {
+                try
+                {
+                    connection.Open();
+                    using (var transaction = connection.BeginTransaction()) 
+                    {
+                        try
+                        {
+                            // 1. запись сотрудника
+                            int employeeId;
+                            using (var cmd = new SQLiteCommand(
+                                "INSERT INTO employees (first_name, last_name, role_id, position_id) " +
+                                "VALUES (@fname, @lname, @role, @position); " +
+                                "SELECT last_insert_rowid();", connection))
+                            {
+                                cmd.Parameters.AddWithValue("@fname", employee.first_name);
+                                cmd.Parameters.AddWithValue("@lname", employee.last_name);
+                                cmd.Parameters.AddWithValue("@role", employee.role_id);
+                                cmd.Parameters.AddWithValue("@position", employee.position_id);
+                                employeeId = Convert.ToInt32(cmd.ExecuteScalar());
+                            }
+
+                            // 2. employee_id
+                            using (var cmd = new SQLiteCommand(
+                                "UPDATE users SET employee_id = @employeeId WHERE id = @userId", connection))
+                            {
+                                cmd.Parameters.AddWithValue("@employeeId", employeeId);
+                                cmd.Parameters.AddWithValue("@userId", userId);
+                                int rowsAffected = cmd.ExecuteNonQuery();
+
+                                if (rowsAffected == 0) { throw new Exception("Пользователь не найден"); }
+                            }
+
+                            transaction.Commit();
+                            return employeeId;
+                        }
+                        catch (Exception ex)
+                        {
+                            transaction.Rollback();
+                            Console.WriteLine($"Ошибка при добавлении сотрудника: {ex.Message}");
+                            return -1;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                { Console.WriteLine($"Ошибка подключения к базе данных: {ex.Message}");return -1; }
+            }
         }
     }
 }

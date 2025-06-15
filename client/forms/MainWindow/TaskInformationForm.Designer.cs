@@ -33,7 +33,6 @@
             nameBox = new TextBox();
             EmployeeComboBox = new ComboBox();
             linkBox = new TextBox();
-            SaveButton = new Button();
             EditTaskButton = new Button();
             SuspendLayout();
             // 
@@ -74,27 +73,15 @@
             linkBox.Size = new Size(323, 160);
             linkBox.TabIndex = 18;
             // 
-            // SaveButton
-            // 
-            SaveButton.BackColor = SystemColors.GradientInactiveCaption;
-            SaveButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            SaveButton.Location = new Point(188, 386);
-            SaveButton.Name = "SaveButton";
-            SaveButton.Size = new Size(148, 32);
-            SaveButton.TabIndex = 19;
-            SaveButton.Text = "Сохранить";
-            SaveButton.UseVisualStyleBackColor = false;
-            SaveButton.Click += SaveButton_Click;
-            // 
             // EditTaskButton
             // 
             EditTaskButton.BackColor = Color.LightGray;
             EditTaskButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            EditTaskButton.Location = new Point(13, 386);
+            EditTaskButton.Location = new Point(13, 377);
             EditTaskButton.Name = "EditTaskButton";
-            EditTaskButton.Size = new Size(148, 32);
+            EditTaskButton.Size = new Size(323, 32);
             EditTaskButton.TabIndex = 20;
-            EditTaskButton.Text = "Редактировать";
+            EditTaskButton.Text = "Выйти";
             EditTaskButton.UseVisualStyleBackColor = false;
             EditTaskButton.Click += EditTaskButton_Click;
             // 
@@ -105,7 +92,6 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(348, 430);
             Controls.Add(EditTaskButton);
-            Controls.Add(SaveButton);
             Controls.Add(linkBox);
             Controls.Add(EmployeeComboBox);
             Controls.Add(nameBox);
@@ -125,7 +111,6 @@
         private TextBox nameBox;
         private ComboBox EmployeeComboBox;
         private TextBox linkBox;
-        private Button SaveButton;
         private Button EditTaskButton;
     }
 }

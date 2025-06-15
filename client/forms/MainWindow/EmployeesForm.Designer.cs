@@ -32,10 +32,7 @@
             collapsibleSidebar1 = new CollapsibleSidebar();
             label1 = new Label();
             EmployeesLayout = new TableLayoutPanel();
-            AddEmployeeButton = new Button();
             ShowEmployees = new Button();
-            SearchBox = new TextBox();
-            SearchButton = new Button();
             SuspendLayout();
             // 
             // collapsibleSidebar1
@@ -77,18 +74,6 @@
             EmployeesLayout.Size = new Size(433, 409);
             EmployeesLayout.TabIndex = 6;
             // 
-            // AddEmployeeButton
-            // 
-            AddEmployeeButton.BackColor = Color.Silver;
-            AddEmployeeButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            AddEmployeeButton.Location = new Point(399, 495);
-            AddEmployeeButton.Name = "AddEmployeeButton";
-            AddEmployeeButton.Size = new Size(117, 31);
-            AddEmployeeButton.TabIndex = 7;
-            AddEmployeeButton.Text = "Добавить";
-            AddEmployeeButton.UseVisualStyleBackColor = false;
-            AddEmployeeButton.Click += AddEmployeeButton_Click;
-            // 
             // ShowEmployees
             // 
             ShowEmployees.BackColor = SystemColors.GradientActiveCaption;
@@ -103,34 +88,13 @@
             ShowEmployees.UseVisualStyleBackColor = false;
             ShowEmployees.Click += ShowEmployees_Click;
             // 
-            // SearchBox
-            // 
-            SearchBox.Location = new Point(548, 54);
-            SearchBox.Name = "SearchBox";
-            SearchBox.PlaceholderText = "Поиск";
-            SearchBox.Size = new Size(279, 27);
-            SearchBox.TabIndex = 9;
-            // 
-            // SearchButton
-            // 
-            SearchButton.Location = new Point(833, 53);
-            SearchButton.Name = "SearchButton";
-            SearchButton.Size = new Size(37, 29);
-            SearchButton.TabIndex = 10;
-            SearchButton.Text = "🔍";
-            SearchButton.UseVisualStyleBackColor = true;
-            SearchButton.Click += SearchButton_Click;
-            // 
             // EmployeesForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(882, 553);
-            Controls.Add(SearchButton);
-            Controls.Add(SearchBox);
             Controls.Add(ShowEmployees);
-            Controls.Add(AddEmployeeButton);
             Controls.Add(EmployeesLayout);
             Controls.Add(label1);
             Controls.Add(collapsibleSidebar1);
@@ -151,9 +115,6 @@
         private CollapsibleSidebar collapsibleSidebar1;
         private Label label1;
         private TableLayoutPanel EmployeesLayout;
-        private Button AddEmployeeButton;
         private Button ShowEmployees;
-        private TextBox SearchBox;
-        private Button SearchButton;
     }
 }

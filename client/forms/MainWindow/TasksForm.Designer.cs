@@ -33,7 +33,6 @@
             label1 = new Label();
             MakeTaskButton = new Button();
             ShowAllTAsksButoon = new Button();
-            OnlyMyTasksCheck = new CheckBox();
             TaskLayout = new TableLayoutPanel();
             SuspendLayout();
             // 
@@ -66,7 +65,7 @@
             // 
             MakeTaskButton.BackColor = SystemColors.GradientActiveCaption;
             MakeTaskButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            MakeTaskButton.Location = new Point(776, 509);
+            MakeTaskButton.Location = new Point(394, 512);
             MakeTaskButton.Name = "MakeTaskButton";
             MakeTaskButton.Size = new Size(94, 29);
             MakeTaskButton.TabIndex = 2;
@@ -85,23 +84,6 @@
             ShowAllTAsksButoon.Text = "Все задачи";
             ShowAllTAsksButoon.UseVisualStyleBackColor = false;
             ShowAllTAsksButoon.Click += ShowAllTAsksButoon_Click;
-            // 
-            // OnlyMyTasksCheck
-            // 
-            OnlyMyTasksCheck.AutoSize = true;
-            OnlyMyTasksCheck.BackColor = SystemColors.GradientActiveCaption;
-            OnlyMyTasksCheck.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
-            OnlyMyTasksCheck.FlatAppearance.BorderSize = 2;
-            OnlyMyTasksCheck.FlatStyle = FlatStyle.Flat;
-            OnlyMyTasksCheck.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            OnlyMyTasksCheck.ForeColor = SystemColors.ControlText;
-            OnlyMyTasksCheck.Location = new Point(372, 514);
-            OnlyMyTasksCheck.Name = "OnlyMyTasksCheck";
-            OnlyMyTasksCheck.Size = new Size(122, 24);
-            OnlyMyTasksCheck.TabIndex = 4;
-            OnlyMyTasksCheck.Text = "Мои задания";
-            OnlyMyTasksCheck.UseVisualStyleBackColor = false;
-            OnlyMyTasksCheck.CheckedChanged += OnlyMyTasksCheck_CheckedChanged;
             // 
             // TaskLayout
             // 
@@ -124,7 +106,6 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(882, 553);
             Controls.Add(TaskLayout);
-            Controls.Add(OnlyMyTasksCheck);
             Controls.Add(ShowAllTAsksButoon);
             Controls.Add(MakeTaskButton);
             Controls.Add(collapsibleSidebar1);
@@ -145,7 +126,6 @@
         private Label label1;
         private Button MakeTaskButton;
         private Button ShowAllTAsksButoon;
-        private CheckBox OnlyMyTasksCheck;
         private TableLayoutPanel TaskLayout;
     }
 }

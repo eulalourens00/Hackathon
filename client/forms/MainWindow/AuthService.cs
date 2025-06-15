@@ -57,28 +57,39 @@ namespace client.forms.MainWindow
         private bool VerifyPassword(string inputPassword, string storedPassword)
         { return inputPassword == storedPassword; }
 
-        public bool RegisterUser(string username, string plainPassword, string email)
+        public int? RegisterUser(string username, string password, string email)
         {
-            if (string.IsNullOrEmpty(_connectionString))  { return false; }
-            try
+            var dbPath = @"Data Source=C:\Hackathon\dataBase.db;Version=3;";
+
+            using (var connection = new SQLiteConnection(dbPath))
             {
-                using (var connection = new SQLiteConnection(_connectionString))
+                connection.Open();
+                using (var transaction = connection.BeginTransaction())
                 {
-                    connection.Open();
+                    try
+                    {
+                        using (var cmd = new SQLiteCommand(
+                            "INSERT INTO users (username, password, email) VALUES (@username, @password, @email); " +
+                            "SELECT last_insert_rowid();", connection))
+                        {
+                            cmd.Parameters.AddWithValue("@username", username);
+                            cmd.Parameters.AddWithValue("@password", password);
+                            cmd.Parameters.AddWithValue("@email", email);
 
-                    var command = new SQLiteCommand(
-                        "INSERT INTO Users (username, password, email) VALUES (@username, @password, @email)",
-                        connection);
+                            int newUserId = Convert.ToInt32(cmd.ExecuteScalar());
 
-                    command.Parameters.AddWithValue("@username", username);
-                    command.Parameters.AddWithValue("@password", plainPassword);
-                    command.Parameters.AddWithValue("@email", email);
-
-                    return command.ExecuteNonQuery() > 0;
+                            transaction.Commit();
+                            return newUserId;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        Console.WriteLine($"Ошибка при регистрации: {ex.Message}");
+                        return null;
+                    }
                 }
             }
-            catch (Exception ex)
-            { MessageBox.Show($"Ошибка: {ex.Message}"); return false; }
         }
     }
 }

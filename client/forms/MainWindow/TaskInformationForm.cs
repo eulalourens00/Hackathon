@@ -85,7 +85,8 @@ namespace client.forms.MainWindow
 
         private void EditTaskButton_Click(object sender, EventArgs e)
         {
-
+            DialogResult = DialogResult.Cancel;
+            this.Close();
         }
     }
 }
