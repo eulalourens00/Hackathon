@@ -28,19 +28,30 @@ namespace client.forms.MainWindow
         private void regbutton_Click(object sender, EventArgs e)
         {
             if (_authService == null)
-            { MessageBox.Show("Ошибка: Сервис авторизации не инициализирован!"); return; }
+            { MessageBox.Show("Ошибка: Сервис авторизации не инициализирован!"); return;}
 
             if (string.IsNullOrWhiteSpace(EmailReg.Text) || string.IsNullOrWhiteSpace(LoginReg.Text) ||
-            string.IsNullOrWhiteSpace(PasswordReg.Text) || string.IsNullOrWhiteSpace(RepPasswordReg.Text))
+                string.IsNullOrWhiteSpace(PasswordReg.Text) || string.IsNullOrWhiteSpace(RepPasswordReg.Text))
+            { MessageBox.Show("Заполните все поля!"); return;}
+
+            int? newUserId = _authService.RegisterUser(LoginReg.Text, PasswordReg.Text, EmailReg.Text);
+
+            if (newUserId.HasValue)
             {
-                MessageBox.Show("Заполните все поля!"); return;
+                var newEmployeeForm = new NewEmployeeForm(
+                    userId: newUserId.Value,
+                    username: LoginReg.Text,
+                    email: EmailReg.Text,
+                    password: PasswordReg.Text);
+
+                if (newEmployeeForm.ShowDialog() == DialogResult.OK)
+                {
+                    MessageBox.Show("Регистрация и создание профиля сотрудника успешно завершены!");
+                    this.Close();
+                    new WelcomeScreen().Show();
+                }
             }
-
-            if (_authService.RegisterUser(LoginReg.Text, PasswordReg.Text, EmailReg.Text))
-            { MessageBox.Show("Регистрация успешна!"); this.Close(); }
-
-            else
-            { MessageBox.Show("Произошла ошибка."); }
+            else {  MessageBox.Show("Произошла ошибка при регистрации.");}
         }
 
         private void showPassword_Click(object sender, EventArgs e)

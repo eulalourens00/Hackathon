@@ -82,7 +82,7 @@ namespace client.forms.MainWindow
 
         private void DeleteObject(int id)
         {
-            if (MessageBox.Show("Удалить объект?", "Подтверждение", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Удалить задачу?", "Подтверждение", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 var tskToDelete = controller.tasksModel.Query().FirstOrDefault(o => o.id == id);
                 if (tskToDelete != null)
@@ -92,62 +92,6 @@ namespace client.forms.MainWindow
                 }
             }
         }
-        private void OnlyMyTasksCheck_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (OnlyMyTasksCheck.Checked)
-                {
-                    var myTasks = controller.GetTasksWithUsernames()
-                .Where(task => task.user_id == _currentUserId)
-                .ToList();
-                    //UpdateFilteredObjectsLayout(myTasks);
-                }
-                else
-                {
-                    LoadTasks();
-                }
-            }
-            catch (Exception ex)
-            { MessageBox.Show($"Ошибка поиска: {ex.Message}"); }
-        }
-
-        //// для галочки, получаем айдишник 
-        private int GetCurrentUserId() { return _currentUserId; }
-        //private void UpdateFilteredObjectsLayout(List<Tasks> tasks)
-        //{
-        //    TaskLayout.Controls.Clear();
-        //    TaskLayout.SuspendLayout();
-
-        //    try
-        //    {
-        //        foreach (var task in tasks)
-        //        {
-        //            var objButton = new Button
-        //            {
-        //                Size = new Size(240, 30),
-        //                Text = $"{task.name} ({task.username})",
-        //                Tag = task.id,
-        //                BackColor = Color.FromArgb(185, 209, 234)
-        //            };
-        //            objButton.Click += (s, e) => OpenTaskDetails(task.id);
-
-        //            var deleteButton = new Button
-        //            {
-        //                Size = new Size(75, 30),
-        //                Text = "Удалить",
-        //                Enabled = _isAdmin,
-        //                Tag = task.id
-        //            };
-        //            deleteButton.Click += (s, e) => DeleteObject(task.id);
-
-        //            TaskLayout.Controls.Add(objButton);
-        //            TaskLayout.Controls.Add(deleteButton);
-        //        }
-        //    }
-        //    catch (Exception ex) { MessageBox.Show($"Ошибка загрузки: {ex.Message}"); }
-        //    finally { TaskLayout.ResumeLayout(true); }
-        //}
 
         private void MakeTaskButton_Click(object sender, EventArgs e)
         {
@@ -177,7 +121,6 @@ namespace client.forms.MainWindow
         private void ShowAllTAsksButoon_Click(object sender, EventArgs e)
         {
             LoadTasks();
-            OnlyMyTasksCheck.Checked = false;
         }
     }
 }

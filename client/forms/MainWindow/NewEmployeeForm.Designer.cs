@@ -33,7 +33,7 @@
             FnameBox = new TextBox();
             LnameBox = new TextBox();
             EmailBox = new TextBox();
-            LoginBox = new TextBox();
+            UsernameBox = new TextBox();
             PasswordBox = new TextBox();
             RoleComboBox = new ComboBox();
             PositionComboBox = new ComboBox();
@@ -77,13 +77,13 @@
             EmailBox.Size = new Size(309, 27);
             EmailBox.TabIndex = 15;
             // 
-            // LoginBox
+            // UsernameBox
             // 
-            LoginBox.Location = new Point(12, 250);
-            LoginBox.Name = "LoginBox";
-            LoginBox.PlaceholderText = "Логин";
-            LoginBox.Size = new Size(309, 27);
-            LoginBox.TabIndex = 17;
+            UsernameBox.Location = new Point(12, 250);
+            UsernameBox.Name = "UsernameBox";
+            UsernameBox.PlaceholderText = "Логин";
+            UsernameBox.Size = new Size(309, 27);
+            UsernameBox.TabIndex = 17;
             // 
             // PasswordBox
             // 
@@ -119,6 +119,7 @@
             SaveButton.TabIndex = 21;
             SaveButton.Text = "Сохранить";
             SaveButton.UseVisualStyleBackColor = false;
+            SaveButton.Click += SaveButton_Click;
             // 
             // CancelButton
             // 
@@ -130,6 +131,7 @@
             CancelButton.TabIndex = 22;
             CancelButton.Text = "Выйти";
             CancelButton.UseVisualStyleBackColor = false;
+            CancelButton.Click += CancelButton_Click;
             // 
             // NewEmployeeForm
             // 
@@ -142,7 +144,7 @@
             Controls.Add(PositionComboBox);
             Controls.Add(RoleComboBox);
             Controls.Add(PasswordBox);
-            Controls.Add(LoginBox);
+            Controls.Add(UsernameBox);
             Controls.Add(EmailBox);
             Controls.Add(LnameBox);
             Controls.Add(FnameBox);
@@ -150,6 +152,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "NewEmployeeForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "NewEmployeeForm";
             ResumeLayout(false);
             PerformLayout();
@@ -161,7 +164,7 @@
         private TextBox FnameBox;
         private TextBox LnameBox;
         private TextBox EmailBox;
-        private TextBox LoginBox;
+        private TextBox UsernameBox;
         private TextBox PasswordBox;
         private ComboBox RoleComboBox;
         private ComboBox PositionComboBox;

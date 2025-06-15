@@ -41,11 +41,9 @@ namespace client.forms.MainWindow
         {
             FN_box.ReadOnly = true;
             LN_box.ReadOnly = true;
-            UsernameBox.ReadOnly = true;
             EmailBox.ReadOnly = true;
             RoleBox.ReadOnly = true;
             PositionBox.ReadOnly = true;
-
         }
 
         private void LoadAccountData()
