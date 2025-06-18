@@ -105,10 +105,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(882, 553);
+            Controls.Add(collapsibleSidebar1);
             Controls.Add(TaskLayout);
             Controls.Add(ShowAllTAsksButoon);
             Controls.Add(MakeTaskButton);
-            Controls.Add(collapsibleSidebar1);
             Controls.Add(label1);
             MainMenuStrip = collapsibleSidebar1;
             MaximizeBox = false;
